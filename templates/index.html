@@ -1,1 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SRM Student Helpdesk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --navy:        #0a1f3d;
+  --navy-mid:    #12336b;
+  --navy-light:  #1d518f;
+  --navy-glow:   #2a6cc4;
+  --navy-tint:   #edf3fc;
+  --navy-tint2:  #f4f8ff;
+  --gold:        #b8710f;
+  --gold-vivid:  #d98c1a;
+  --gold-bright: #f0a830;
+  --gold-light:  #fef6e4;
+  --gold-border: #e8c070;
+  --teal:        #0d7a6e;
+  --teal-light:  #edf8f7;
+  --surface:     #ffffff;
+  --sidebar-bg:  #0c1f3f;
+  --sidebar-2:   #0f2a52;
+  --border:      #dce6f5;
+  --border-soft: #eaf0fb;
+  --text-dark:   #0a1f3d;
+  --text-body:   #253d5e;
+  --text-muted:  #6b82a8;
+  --text-pale:   #9eb3cf;
+  --bg-page:     #eef2f9;
+  --r-sm: 6px; --r-md: 12px; --r-lg: 16px; --r-xl: 22px; --r-2xl: 28px;
+  --sh-xs: 0 1px 3px rgba(10,31,61,.06);
+  --sh-sm: 0 2px 10px rgba(10,31,61,.08);
+  --sh-md: 0 6px 24px rgba(10,31,61,.11);
+  --sh-lg: 0 16px 48px rgba(10,31,61,.16);
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-body);
+}
+
+/* ═══════════════════════════════════════════════
+   APP SHELL — FULL SCREEN 3-COLUMN
+═══════════════════════════════════════════════ */
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════ */
+.sidebar {
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border-right: 1px solid rgba(255,255,255,.04);
+}
+
+/* Ambient glow behind sidebar */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(41,108,196,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 80px; right: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,124,26,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Logo area */
+.sidebar-logo {
+  padding: 22px 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-glow) 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(41,108,196,.35);
+}
+
+.logo-icon::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 12px; height: 12px;
+  background: var(--gold-bright);
+  border-radius: 4px 0 6px 0;
+}
+
+.logo-icon span {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-text { flex: 1; min-width: 0; }
+.logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+.logo-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,.35);
+  font-weight: 400;
+  letter-spacing: .04em;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+/* Session info */
+.session-card {
+  margin: 14px 14px 0;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r-md);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.session-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: pulse-dot 2.5s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,.0); }
+}
+
+.session-info { flex: 1; min-width: 0; }
+.session-status {
+  font-size: 11px;
+  color: #4ade80;
+  font-weight: 500;
+}
+.session-id-text {
+  font-size: 9.5px;
+  color: rgba(255,255,255,.25);
+  font-weight: 400;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Nav topics */
+.nav-section {
+  padding: 16px 14px 8px;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.nav-btn {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-md);
+  padding: 9px 10px;
+  cursor: pointer;
+  transition: all .15s;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,255,255,.14);
+  transform: translateY(-1px);
+}
+
+.nav-btn-icon { font-size: 15px; line-height: 1; }
+.nav-btn-label { font-size: 11px; color: rgba(255,255,255,.65); font-weight: 500; }
+
+/* Divider */
+.sidebar-divider {
+  height: 1px;
+  background: rgba(255,255,255,.05);
+  margin: 10px 14px;
+  flex-shrink: 0;
+}
+
+/* Quick chips in sidebar */
+.quick-section {
+  padding: 0 14px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.quick-section::-webkit-scrollbar { width: 2px; }
+.quick-section::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); }
+
+.quick-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+
+.quick-list { display: flex; flex-direction: column; gap: 3px; }
+
+.quick-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: all .15s;
+  border: 1px solid transparent;
+}
+
+.quick-item:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.08);
+}
+
+.quick-item-icon {
+  font-size: 13px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.quick-item-text {
+  font-size: 11.5px;
+  color: rgba(255,255,255,.5);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255,255,255,.05);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.sb-footer-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px;
+  border-radius: var(--r-sm);
+  border: 1px solid rgba(255,255,255,.07);
+  background: transparent;
+  color: rgba(255,255,255,.35);
+  cursor: pointer;
+  font-size: 11px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  transition: all .15s;
+}
+
+.sb-footer-btn:hover {
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.7);
+  border-color: rgba(255,255,255,.12);
+}
+
+.sb-footer-btn svg {
+  width: 12px; height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   MAIN PANEL
+═══════════════════════════════════════════════ */
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-page);
+  position: relative;
+}
+
+/* Ambient bg */
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 400px; height: 300px;
+  background: radial-gradient(ellipse at top right, rgba(41,108,196,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── TOP BAR ──────────────────────────────────── */
+.topbar {
+  height: 58px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  box-shadow: var(--sh-xs);
+}
+
+.topbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    var(--navy) 0%,
+    var(--navy-glow) 40%,
+    var(--gold-vivid) 70%,
+    var(--gold-bright) 100%);
+  opacity: .5;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--navy);
+  letter-spacing: -.01em;
+}
+
+.topbar-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.topbar-sep {
+  width: 1px; height: 26px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+.model-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--gold-light);
+  border: 1px solid var(--gold-border);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: .02em;
+}
+
+.model-badge::before {
+  content: '✦';
+  font-size: 8px;
+}
+
+.kb-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--navy-tint);
+  border: 1px solid var(--border);
+  color: var(--navy-mid);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.kb-live-pill::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal) 0%, #1ab8a8 100%);
+  box-shadow: 0 0 0 4px rgba(13,122,110,.12);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tb-btn {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  transition: all .15s;
+  white-space: nowrap;
+  box-shadow: var(--sh-xs);
+}
+
+.tb-btn:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+  box-shadow: var(--sh-sm);
+}
+
+.tb-btn svg {
+  width: 12px; height: 12px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.tb-btn-danger:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+/* ── CHAT SCROLL AREA ─────────────────────────── */
+#chat-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px 16px;
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: 1;
+}
+
+#chat-container::-webkit-scrollbar { width: 4px; }
+#chat-container::-webkit-scrollbar-track { background: transparent; }
+#chat-container::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* ── DATE DIVIDER ───────────────────────────────── */
+.date-divider {
+  display: flex; align-items: center; gap: 12px;
+  max-width: 800px; margin: 0 auto 20px;
+}
+.date-divider::before, .date-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.date-divider span {
+  font-size: 10.5px; color: var(--text-pale); font-weight: 500;
+  letter-spacing: .04em; white-space: nowrap;
+}
+
+/* ── WELCOME CARD ───────────────────────────────── */
+.welcome-wrap {
+  max-width: 800px;
+  margin: 0 auto 24px;
+  animation: fadeUp .5s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  box-shadow: var(--sh-md);
+}
+
+.welcome-hero {
+  background: linear-gradient(140deg, var(--navy) 0%, var(--navy-mid) 55%, #1d4f8f 100%);
+  padding: 32px 36px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Decorative geometric shapes */
+.welcome-hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: 80px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.welcome-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: 30px;
+  width: 120px; height: 120px;
+  background: rgba(240,168,48,.08);
+  border-radius: 30px;
+  transform: rotate(20deg);
+}
+
+.welcome-hero-left { position: relative; z-index: 1; }
+
+.welcome-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.welcome-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px; height: 1.5px;
+  background: var(--gold-bright);
+  border-radius: 2px;
+}
+
+.welcome-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: #fff;
+  line-height: 1.28;
+  letter-spacing: -.02em;
+}
+
+.welcome-hero h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,.6);
+}
+
+.welcome-hero-right {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 6px 12px;
+}
+
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--gold-bright);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 10px;
+  color: rgba(255,255,255,.4);
+  font-weight: 500;
+  line-height: 1.3;
+  max-width: 60px;
+}
+
+.welcome-body {
+  padding: 22px 28px 24px;
+}
+
+.welcome-body > p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+  max-width: 520px;
+}
+
+.insight-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.insight-card {
+  background: linear-gradient(180deg, #fff 0%, var(--navy-tint2) 100%);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-lg);
+  padding: 14px 14px 13px;
+  min-height: 102px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--sh-xs);
+}
+
+.insight-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-pale);
+}
+
+.insight-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--navy);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+
+.insight-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.workflow-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s, border-color .18s, box-shadow .18s, background .18s;
+  box-shadow: var(--sh-xs);
+}
+
+.workflow-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(42,108,196,.28);
+  box-shadow: var(--sh-sm);
+  background: #fbfdff;
+}
+
+.workflow-title {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.workflow-copy {
+  display: block;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  min-height: 34px;
+}
+
+.workflow-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Topic grid — 6 across */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 7px;
+}
+
+.topic-pill {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 10px 8px;
+  border-radius: var(--r-md);
+  background: var(--navy-tint2);
+  color: var(--navy-mid);
+  text-align: center;
+  border: 1px solid var(--border-soft);
+  cursor: pointer;
+  transition: all .18s;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 5px;
+  line-height: 1.2;
+}
+
+.topic-pill span.pill-icon { font-size: 18px; }
+.topic-pill span.pill-label { font-size: 10.5px; }
+
+.topic-pill:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: var(--sh-sm);
+}
+
+/* ── MESSAGES ───────────────────────────────────── */
+.msg-row {
+  display: flex;
+  margin-bottom: 14px;
+  gap: 11px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: msgIn .24s cubic-bezier(.34,1.2,.64,1) both;
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.msg-row.user { flex-direction: row-reverse; }
+
+.avatar {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  margin-top: 2px;
+  position: relative;
+}
+
+.avatar.bot {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 2px 8px rgba(10,31,61,.22);
+}
+
+.avatar.bot::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; right: -2px;
+  width: 9px; height: 9px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 2px solid var(--bg-page);
+}
+
+.avatar.user {
+  background: var(--gold-light);
+  color: var(--gold);
+  border: 1.5px solid var(--gold-border);
+  font-size: 11px;
+}
+
+.bubble-wrap {
+  max-width: calc(100% - 50px);
+  display: flex; flex-direction: column; gap: 5px;
+}
+
+.msg-row.user .bubble-wrap { align-items: flex-end; }
+
+.bubble {
+  padding: 12px 16px;
+  border-radius: var(--r-xl);
+  font-size: 13.5px;
+  line-height: 1.68;
+  word-break: break-word;
+}
+
+.bubble.user {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+  box-shadow: var(--sh-md);
+}
+
+.bubble.bot {
+  background: var(--surface);
+  color: var(--text-dark);
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--border);
+  box-shadow: var(--sh-xs);
+}
+
+.bubble.bot strong { font-weight: 600; color: var(--navy); }
+.bubble.bot em     { font-style: italic; color: var(--text-muted); }
+.bubble.bot code {
+  font-size: 12px;
+  background: var(--navy-tint);
+  color: var(--navy-mid);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+.bubble-timestamp {
+  font-size: 10px;
+  color: var(--text-pale);
+  font-weight: 400;
+  padding: 0 4px;
+}
+
+/* Step list */
+.step-list {
+  list-style: none;
+  margin-top: 10px;
+  display: flex; flex-direction: column; gap: 7px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-soft);
+}
+.step-list li {
+  display: flex; gap: 9px; align-items: flex-start;
+  font-size: 13px; color: var(--text-body);
+}
+.step-num {
+  min-width: 20px; height: 20px;
+  border-radius: 5px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+/* Meta row */
+.meta-row {
+  display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.badge {
+  font-size: 9.5px; font-weight: 600;
+  padding: 2px 7px; border-radius: 20px;
+  display: inline-flex; align-items: center; gap: 3px;
+  letter-spacing: .04em;
+}
+.badge.tfidf { background: var(--teal-light); color: var(--teal); border: 1px solid #60d4c8; }
+.badge.groq  { background: var(--gold-light);  color: var(--gold); border: 1px solid var(--gold-border); }
+.badge.lang  { background: var(--navy-tint);   color: var(--navy-mid); border: 1px solid var(--border); }
+.badge.office { background: #fff; color: var(--navy-mid); border: 1px solid var(--border); }
+
+.conf-wrap { display: flex; align-items: center; gap: 5px; }
+.conf-bar { height: 3px; width: 48px; background: var(--border-soft); border-radius: 2px; overflow: hidden; }
+.conf-fill { height: 100%; background: linear-gradient(90deg, var(--teal) 0%, #1ab8a8 100%); border-radius: 2px; transition: width .6s cubic-bezier(.25,.46,.45,.94); }
+.conf-text { font-size: 10px; color: var(--text-pale); font-weight: 500; }
+
+.reply-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 2px 0;
+}
+
+.reply-suggestion {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--navy-mid);
+  padding: 7px 11px;
+  font-size: 11px;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: transform .15s, border-color .15s, box-shadow .15s, background .15s;
+  box-shadow: var(--sh-xs);
+}
+
+.reply-suggestion:hover {
+  transform: translateY(-1px);
+  border-color: rgba(42,108,196,.26);
+  background: var(--navy-tint2);
+  box-shadow: var(--sh-sm);
+}
+
+/* ── TYPING ─────────────────────────────────────── */
+.typing-bubble {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  border-radius: var(--r-xl);
+  border-bottom-left-radius: 4px;
+  display: inline-flex; gap: 6px; align-items: center;
+  box-shadow: var(--sh-xs);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text-pale); animation: bounce .9s infinite; }
+.dot:nth-child(2) { animation-delay: .16s; }
+.dot:nth-child(3) { animation-delay: .32s; }
+@keyframes bounce {
+  0%,60%,100% { transform: translateY(0); background: var(--text-pale); }
+  30%         { transform: translateY(-7px); background: var(--navy-glow); }
+}
+
+/* ── INPUT ZONE ─────────────────────────────────── */
+.input-zone {
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-soft);
+  padding: 12px 28px 14px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -4px 20px rgba(10,31,61,.05);
+}
+
+/* Suggested chips row */
+.chips-strip {
+  display: flex;
+  gap: 5px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.chips-strip::-webkit-scrollbar { display: none; }
+
+.chip {
+  font-size: 11.5px;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 4px;
+  box-shadow: var(--sh-xs);
+  flex-shrink: 0;
+}
+.chip:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--sh-sm);
+}
+
+.chips-label-inline {
+  font-size: 9.5px;
+  color: var(--text-pale);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+  padding-right: 2px;
+}
+
+/* Input bar */
+.input-bar {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-page);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: 8px 8px 8px 18px;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.input-bar:focus-within {
+  border-color: var(--navy-light);
+  box-shadow: 0 0 0 4px rgba(29,81,143,.08);
+  background: var(--surface);
+}
+
+#msg-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text-dark);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  resize: none;
+  max-height: 120px;
+  outline: none;
+  line-height: 1.55;
+  padding: 4px 0;
+}
+#msg-input::placeholder { color: var(--text-pale); }
+
+.input-right {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.char-pill {
+  font-size: 10px;
+  color: var(--text-pale);
+  align-self: center;
+  font-weight: 500;
+}
+.char-pill.warn { color: #dc2626; font-weight: 600; }
+
+#send-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all .15s;
+  box-shadow: 0 3px 10px rgba(10,31,61,.25);
+}
+#send-btn:hover {
+  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-glow) 100%);
+  box-shadow: 0 5px 16px rgba(10,31,61,.3);
+  transform: scale(1.06);
+}
+#send-btn:active  { transform: scale(.93); }
+#send-btn:disabled { opacity: .3; cursor: not-allowed; transform: none; box-shadow: none; }
+#send-btn svg {
+  width: 16px; height: 16px;
+  fill: none; stroke: #fff;
+  stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.input-footer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  max-width: 800px;
+  margin-left: auto; margin-right: auto;
+}
+
+.input-hint {
+  font-size: 10px;
+  color: var(--text-pale);
+  letter-spacing: .02em;
+}
+
+/* ── INSIGHTS DRAWER ───────────────────────────── */
+#debug-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,31,61,.28);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  z-index: 320;
+}
+
+#debug-backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.debug-drawer {
+  position: fixed;
+  top: 74px;
+  right: 22px;
+  width: min(420px, calc(100vw - 28px));
+  max-height: calc(100vh - 96px);
+  overflow: auto;
+  background: rgba(255,255,255,.98);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--sh-lg);
+  opacity: 0;
+  transform: translateY(-8px) scale(.985);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+  z-index: 330;
+}
+
+.debug-drawer.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.debug-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 18px 14px;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border-soft);
+  backdrop-filter: blur(12px);
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}
+
+.debug-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--navy);
+}
+
+.debug-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.debug-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.debug-body {
+  padding: 16px 18px 18px;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.debug-stat {
+  background: linear-gradient(180deg, #fff 0%, var(--navy-tint2) 100%);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.debug-stat-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-pale);
+  margin-bottom: 8px;
+}
+
+.debug-stat-value {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--navy);
+}
+
+.debug-section {
+  margin-bottom: 16px;
+}
+
+.debug-section h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-pale);
+  margin-bottom: 9px;
+}
+
+.debug-domain-list,
+.debug-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.debug-domain-item,
+.debug-list-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.debug-domain-label,
+.debug-item-main {
+  font-size: 12px;
+  color: var(--text-body);
+  line-height: 1.45;
+}
+
+.debug-domain-value,
+.debug-item-side {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.debug-item-side {
+  text-align: right;
+}
+
+.debug-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--navy-tint2);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+/* ── TOAST ─────────────────────────────────────── */
+#toast {
+  position: fixed;
+  bottom: 90px; left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--navy);
+  color: #fff;
+  font-size: 12px; font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 20px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  z-index: 300;
+  white-space: nowrap;
+  box-shadow: var(--sh-lg);
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Scroll anchor */
+#scroll-anchor { height: 1px; }
+
+/* Mobile: collapse sidebar */
+@media (max-width: 768px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  #chat-container { padding: 16px 14px 10px; }
+  .input-zone { padding: 10px 14px 12px; }
+  .welcome-hero { padding: 22px 20px; flex-direction: column; align-items: flex-start; }
+  .welcome-hero h1 { font-size: 22px; }
+  .welcome-hero-right { display: none; }
+  .insight-strip { grid-template-columns: repeat(2, 1fr); }
+  .workflow-grid { grid-template-columns: 1fr; }
+  .debug-drawer {
+    top: 12px;
+    right: 10px;
+    width: calc(100vw - 20px);
+    max-height: calc(100vh - 24px);
+  }
+  .debug-grid { grid-template-columns: 1fr; }
+  .topic-grid { grid-template-columns: repeat(3, 1fr); }
+  .welcome-body { padding: 16px 18px 18px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ══════════════════ SIDEBAR ══════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon"><span>S</span></div>
+      <div class="logo-text">
+        <div class="logo-name">SRM Helpdesk</div>
+        <div class="logo-sub">Student Assistant</div>
+      </div>
+    </div>
+
+    <div class="session-card">
+      <div class="session-dot"></div>
+      <div class="session-info">
+        <div class="session-status">AI Online · Ready</div>
+        <div class="session-id-text" id="session-id">Session #—</div>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Topics</div>
+      <div class="nav-grid" id="nav-grid">
+        <button class="nav-btn" data-q="What is the semester fee for BTech CSE?">
+          <span class="nav-btn-icon">💰</span>
+          <span class="nav-btn-label">Fees</span>
+        </button>
+        <button class="nav-btn" data-q="When is the end semester exam?">
+          <span class="nav-btn-icon">📅</span>
+          <span class="nav-btn-label">Exams</span>
+        </button>
+        <button class="nav-btn" data-q="What is the minimum attendance required?">
+          <span class="nav-btn-icon">✅</span>
+          <span class="nav-btn-label">Attendance</span>
+        </button>
+        <button class="nav-btn" data-q="How do I apply for hostel?">
+          <span class="nav-btn-icon">🏠</span>
+          <span class="nav-btn-label">Hostel</span>
+        </button>
+        <button class="nav-btn" data-q="What is the placement eligibility criteria?">
+          <span class="nav-btn-icon">💼</span>
+          <span class="nav-btn-label">Placements</span>
+        </button>
+        <button class="nav-btn" data-q="Is there a college bus facility?">
+          <span class="nav-btn-icon">🚌</span>
+          <span class="nav-btn-label">Transport</span>
+        </button>
+        <button class="nav-btn" data-q="How do I log in to ACADEMIA portal?">
+          <span class="nav-btn-icon">🔐</span>
+          <span class="nav-btn-label">ACADEMIA</span>
+        </button>
+        <button class="nav-btn" data-q="What is the grading system?">
+          <span class="nav-btn-icon">🎓</span>
+          <span class="nav-btn-label">Grading</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="quick-section">
+      <div class="quick-label">Recent suggestions</div>
+      <div class="quick-list" id="quick-list">
+        <div class="quick-item" data-q="How do I get my hall ticket?">
+          <span class="quick-item-icon">🎫</span>
+          <span class="quick-item-text">How do I get my hall ticket?</span>
+        </div>
+        <div class="quick-item" data-q="When are results published?">
+          <span class="quick-item-icon">📊</span>
+          <span class="quick-item-text">When are results published?</span>
+        </div>
+        <div class="quick-item" data-q="What is the late fee penalty?">
+          <span class="quick-item-icon">⚠️</span>
+          <span class="quick-item-text">What is the late fee penalty?</span>
+        </div>
+        <div class="quick-item" data-q="How do I apply for OD?">
+          <span class="quick-item-icon">📝</span>
+          <span class="quick-item-text">How do I apply for OD?</span>
+        </div>
+        <div class="quick-item" data-q="My fee payment is not reflected. What should I do?">
+          <span class="quick-item-icon">💳</span>
+          <span class="quick-item-text">Fee payment not reflected</span>
+        </div>
+        <div class="quick-item" data-q="What documents are required for placement registration?">
+          <span class="quick-item-icon">📁</span>
+          <span class="quick-item-text">Placement registration documents</span>
+        </div>
+        <div class="quick-item" data-q="How do I raise a hostel maintenance complaint?">
+          <span class="quick-item-icon">🛠️</span>
+          <span class="quick-item-text">Hostel maintenance complaint</span>
+        </div>
+        <div class="quick-item" data-q="How do I get my provisional certificate after graduation?">
+          <span class="quick-item-icon">📜</span>
+          <span class="quick-item-text">Provisional certificate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="sb-footer-btn" id="export-btn">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export
+      </button>
+      <button class="sb-footer-btn tb-btn-danger" id="clear-btn">
+        <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+        Clear
+      </button>
+    </div>
+  </aside>
+
+  <!-- ══════════════════ MAIN PANEL ══════════════════ -->
+  <div class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <div>
+          <div class="topbar-title">Student Helpdesk</div>
+          <div class="topbar-subtitle">SRM Institute of Science &amp; Technology</div>
+        </div>
+        <div class="topbar-sep"></div>
+        <div class="model-badge">AI-Powered</div>
+        <div class="kb-live-pill" id="kb-live-pill">120 curated answers live</div>
+      </div>
+      <div class="topbar-right">
+        <button class="tb-btn" id="insights-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-6"/></svg>
+          Insights
+        </button>
+        <button class="tb-btn" id="export-btn-top">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export Chat
+        </button>
+        <button class="tb-btn tb-btn-danger" id="clear-btn-top">
+          <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          Clear
+        </button>
+      </div>
+    </div>
+
+    <!-- CHAT MESSAGES -->
+    <div id="chat-container">
+
+      <div class="date-divider">
+        <span id="today-label"></span>
+      </div>
+
+      <!-- WELCOME CARD -->
+      <div class="welcome-wrap" id="welcome-wrap">
+        <div class="welcome-card">
+          <div class="welcome-hero">
+            <div class="welcome-hero-left">
+              <div class="welcome-eyebrow">SRM Institute of Science &amp; Technology</div>
+              <h1>Hello! How can I<br><em>assist you today?</em></h1>
+            </div>
+            <div class="welcome-hero-right">
+              <div class="hero-stat">
+                <div class="hero-stat-num">24/7</div>
+                <div class="hero-stat-label">Always available</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-num" id="hero-coverage-count">120+</div>
+                <div class="hero-stat-label" id="hero-coverage-label">9 service domains</div>
+              </div>
+            </div>
+          </div>
+          <div class="welcome-body">
+            <p>Ask me anything about fees, exams, attendance, certificates, hostel, placements, transport, or campus services at SRM. The expanded knowledge base now covers both quick facts and guided student workflows.</p>
+            <div class="insight-strip">
+              <article class="insight-card">
+                <span class="insight-label">Answer Library</span>
+                <strong class="insight-value" id="insight-total">120</strong>
+                <span class="insight-meta" id="insight-total-meta">Updated 2026-04-08 with quick answers and workflows.</span>
+              </article>
+              <article class="insight-card">
+                <span class="insight-label">Service Domains</span>
+                <strong class="insight-value" id="insight-domains">9</strong>
+                <span class="insight-meta" id="insight-domains-meta">Fees, exams, hostel, placements and more.</span>
+              </article>
+              <article class="insight-card">
+                <span class="insight-label">Guided Steps</span>
+                <strong class="insight-value" id="insight-guides">22</strong>
+                <span class="insight-meta" id="insight-guides-meta">Answers that include a step-by-step flow.</span>
+              </article>
+              <article class="insight-card">
+                <span class="insight-label">Source Offices</span>
+                <strong class="insight-value" id="insight-sources">13</strong>
+                <span class="insight-meta" id="insight-sources-meta">Responses mapped to the right campus office.</span>
+              </article>
+            </div>
+            <div class="workflow-grid" id="workflow-grid">
+              <button class="workflow-card" data-q="My fee payment is not reflected. What should I do?">
+                <span class="workflow-title">Fees &amp; Payments</span>
+                <span class="workflow-copy">Resolve delayed fee updates, instalment requests, and education-loan documents.</span>
+                <span class="workflow-cta">Ask now →</span>
+              </button>
+              <button class="workflow-card" data-q="How do I get my provisional certificate after graduation?">
+                <span class="workflow-title">Results &amp; Certificates</span>
+                <span class="workflow-copy">Check transcripts, provisional certificates, and result correction workflows.</span>
+                <span class="workflow-cta">Ask now →</span>
+              </button>
+              <button class="workflow-card" data-q="How can I apply for a scribe for exams?">
+                <span class="workflow-title">Exam Support</span>
+                <span class="workflow-copy">Handle hall ticket issues, seating plans, exam absence, and accessibility requests.</span>
+                <span class="workflow-cta">Ask now →</span>
+              </button>
+              <button class="workflow-card" data-q="How do I change my hostel room after allotment?">
+                <span class="workflow-title">Hostel Services</span>
+                <span class="workflow-copy">Request room changes, outing passes, mess help, and maintenance support.</span>
+                <span class="workflow-cta">Ask now →</span>
+              </button>
+              <button class="workflow-card" data-q="What documents are required for placement registration?">
+                <span class="workflow-title">Career &amp; CDC</span>
+                <span class="workflow-copy">Prepare for placements with resume review, internship support, and drive documents.</span>
+                <span class="workflow-cta">Ask now →</span>
+              </button>
+              <button class="workflow-card" data-q="How long does OD take to update in attendance?">
+                <span class="workflow-title">Attendance &amp; OD</span>
+                <span class="workflow-copy">Track OD status, attendance errors, medical leave, and shortage-related questions.</span>
+                <span class="workflow-cta">Ask now →</span>
+              </button>
+            </div>
+            <div class="topic-grid" id="topic-grid">
+              <div class="topic-pill" data-q="What is the semester fee for BTech CSE?">
+                <span class="pill-icon">💰</span><span class="pill-label">Fees</span>
+              </div>
+              <div class="topic-pill" data-q="When is the end semester exam?">
+                <span class="pill-icon">📅</span><span class="pill-label">Exams</span>
+              </div>
+              <div class="topic-pill" data-q="What is the minimum attendance required?">
+                <span class="pill-icon">✅</span><span class="pill-label">Attendance</span>
+              </div>
+              <div class="topic-pill" data-q="How do I apply for hostel?">
+                <span class="pill-icon">🏠</span><span class="pill-label">Hostel</span>
+              </div>
+              <div class="topic-pill" data-q="What is the placement eligibility criteria?">
+                <span class="pill-icon">💼</span><span class="pill-label">Placements</span>
+              </div>
+              <div class="topic-pill" data-q="Is there a college bus facility?">
+                <span class="pill-icon">🚌</span><span class="pill-label">Transport</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="scroll-anchor"></div>
+    </div>
+
+    <!-- INPUT ZONE -->
+    <div class="input-zone">
+      <!-- Chips -->
+      <div class="chips-strip" id="chips-strip">
+        <span class="chips-label-inline">Suggest →</span>
+        <button class="chip" data-q="What is the semester fee for BTech CSE?">💰 Semester fee</button>
+        <button class="chip" data-q="What is the minimum attendance required?">📋 Attendance rule</button>
+        <button class="chip" data-q="How do I get my hall ticket?">🎫 Hall ticket</button>
+        <button class="chip" data-q="When are results published?">📊 Results</button>
+        <button class="chip" data-q="How do I log in to ACADEMIA portal?">🔐 ACADEMIA login</button>
+        <button class="chip" data-q="My fee payment is not reflected. What should I do?">💳 Payment issue</button>
+        <button class="chip" data-q="How do I apply for OD?">📝 Apply OD</button>
+        <button class="chip" data-q="What documents are required for placement registration?">📁 Placement docs</button>
+        <button class="chip" data-q="How do I change my hostel room after allotment?">🛏️ Room change</button>
+        <button class="chip" data-q="How do I get my provisional certificate after graduation?">📜 Provisional certificate</button>
+      </div>
+
+      <!-- Input bar -->
+      <div class="input-bar">
+        <textarea
+          id="msg-input"
+          placeholder="Ask anything about SRM — fees, exams, hostel, placements…"
+          rows="1"
+          maxlength="500"
+          aria-label="Chat message"
+        ></textarea>
+        <div class="input-right">
+          <span class="char-pill" id="char-count">0/500</span>
+          <button id="send-btn" aria-label="Send message">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-footer-row">
+        <span class="input-hint">Press Enter ↵ to send &nbsp;·&nbsp; Shift+Enter for new line</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="debug-backdrop" aria-hidden="true"></div>
+<aside class="debug-drawer" id="debug-drawer" aria-hidden="true">
+  <div class="debug-header">
+    <div>
+      <div class="debug-title">Insights</div>
+      <div class="debug-sub">Knowledge base coverage, stale content, and fallback trends.</div>
+    </div>
+    <button class="debug-close" id="debug-close" aria-label="Close insights">×</button>
+  </div>
+  <div class="debug-body">
+    <div class="debug-grid">
+      <article class="debug-stat">
+        <span class="debug-stat-label">Pairs</span>
+        <strong class="debug-stat-value" id="debug-total">120</strong>
+      </article>
+      <article class="debug-stat">
+        <span class="debug-stat-label">Stale</span>
+        <strong class="debug-stat-value" id="debug-stale">0</strong>
+      </article>
+      <article class="debug-stat">
+        <span class="debug-stat-label">TF-IDF Rate</span>
+        <strong class="debug-stat-value" id="debug-rate">0%</strong>
+      </article>
+    </div>
+
+    <section class="debug-section">
+      <h3>Domain Coverage</h3>
+      <div class="debug-domain-list" id="debug-domains"></div>
+    </section>
+
+    <section class="debug-section">
+      <h3>Recent Updates</h3>
+      <div class="debug-list" id="debug-recent"></div>
+    </section>
+
+    <section class="debug-section">
+      <h3>Top Fallback Queries</h3>
+      <div class="debug-list" id="debug-failures"></div>
+    </section>
+  </div>
+</aside>
+
+<script>
+const MAX_CHARS   = 500;
+let chatHistory   = [];
+let isLoading     = false;
+let msgCount      = 0;
+
+const chatEl      = document.getElementById('chat-container');
+const msgInput    = document.getElementById('msg-input');
+const sendBtn     = document.getElementById('send-btn');
+const charCount   = document.getElementById('char-count');
+const chipsStrip  = document.getElementById('chips-strip');
+const exportBtnS  = document.getElementById('export-btn');
+const clearBtnS   = document.getElementById('clear-btn');
+const exportBtnT  = document.getElementById('export-btn-top');
+const clearBtnT   = document.getElementById('clear-btn-top');
+const insightsBtn = document.getElementById('insights-btn');
+const toast       = document.getElementById('toast');
+const welcome     = document.getElementById('welcome-wrap');
+const topicGrid   = document.getElementById('topic-grid');
+const navGrid     = document.getElementById('nav-grid');
+const quickList   = document.getElementById('quick-list');
+const workflowGrid = document.getElementById('workflow-grid');
+const anchor      = document.getElementById('scroll-anchor');
+const kbLivePill  = document.getElementById('kb-live-pill');
+const heroCoverageCount = document.getElementById('hero-coverage-count');
+const heroCoverageLabel = document.getElementById('hero-coverage-label');
+const insightTotal = document.getElementById('insight-total');
+const insightTotalMeta = document.getElementById('insight-total-meta');
+const insightDomains = document.getElementById('insight-domains');
+const insightDomainsMeta = document.getElementById('insight-domains-meta');
+const insightGuides = document.getElementById('insight-guides');
+const insightGuidesMeta = document.getElementById('insight-guides-meta');
+const insightSources = document.getElementById('insight-sources');
+const insightSourcesMeta = document.getElementById('insight-sources-meta');
+const debugBackdrop = document.getElementById('debug-backdrop');
+const debugDrawer = document.getElementById('debug-drawer');
+const debugClose = document.getElementById('debug-close');
+const debugTotal = document.getElementById('debug-total');
+const debugStale = document.getElementById('debug-stale');
+const debugRate = document.getElementById('debug-rate');
+const debugDomains = document.getElementById('debug-domains');
+const debugRecent = document.getElementById('debug-recent');
+const debugFailures = document.getElementById('debug-failures');
+
+const DOMAIN_META = {
+  fee: { icon: '💰', label: 'Fees' },
+  exam: { icon: '📅', label: 'Exams' },
+  attendance: { icon: '✅', label: 'Attendance' },
+  hostel: { icon: '🏠', label: 'Hostel' },
+  placement: { icon: '💼', label: 'Placements' },
+  transport: { icon: '🚌', label: 'Transport' },
+  results: { icon: '📊', label: 'Results' },
+  schedule: { icon: '🗓️', label: 'Schedule' },
+  general: { icon: '🎓', label: 'Campus' },
+};
+
+let insightsLoaded = false;
+
+// Session ID
+document.getElementById('session-id').textContent =
+  'Session #' + Math.random().toString(36).slice(2, 8).toUpperCase();
+
+// Today label
+document.getElementById('today-label').textContent =
+  new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+// ── Helpers ─────────────────────────────────────
+function showToast(msg, dur = 2400) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), dur);
+}
+
+function scrollBottom() {
+  requestAnimationFrame(() => anchor.scrollIntoView({ block: 'end' }));
+}
+
+function nowTime() {
+  return new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+}
+
+function domainMeta(domain) {
+  return DOMAIN_META[domain] || { icon: '🎓', label: domain || 'General' };
+}
+
+function shortQuestion(question, max = 24) {
+  if (!question) return 'Ask now';
+  const cleaned = question.replace(/\?$/, '');
+  return cleaned.length > max ? `${cleaned.slice(0, max - 1)}…` : cleaned;
+}
+
+function escapeHtml(text = '') {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderFeaturedQuestions(items = []) {
+  if (!items.length) return;
+
+  if (chipsStrip) {
+    const chipItems = items.slice(0, 8).map((item) => {
+      const meta = domainMeta(item.domain);
+      return `<button class="chip" data-q="${escapeHtml(item.question)}">${meta.icon} ${escapeHtml(shortQuestion(item.question, 20))}</button>`;
+    });
+    chipsStrip.innerHTML = `<span class="chips-label-inline">Suggest →</span>${chipItems.join('')}`;
+  }
+
+  if (quickList) {
+    quickList.innerHTML = items.slice(0, 8).map((item) => {
+      const meta = domainMeta(item.domain);
+      return `
+        <div class="quick-item" data-q="${escapeHtml(item.question)}">
+          <span class="quick-item-icon">${meta.icon}</span>
+          <span class="quick-item-text">${escapeHtml(item.question)}</span>
+        </div>
+      `;
+    }).join('');
+  }
+}
+
+function renderDomainCards(domains = {}, featuredItems = []) {
+  const rankedDomains = Object.entries(domains)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8);
+
+  if (topicGrid) {
+    topicGrid.innerHTML = rankedDomains.slice(0, 6).map(([domain]) => {
+      const meta = domainMeta(domain);
+      const sample = featuredItems.find((item) => item.domain === domain)?.question || '';
+      return `
+        <div class="topic-pill" data-q="${escapeHtml(sample)}">
+          <span class="pill-icon">${meta.icon}</span><span class="pill-label">${escapeHtml(meta.label)}</span>
+        </div>
+      `;
+    }).join('');
+  }
+
+  if (navGrid) {
+    navGrid.innerHTML = rankedDomains.map(([domain]) => {
+      const meta = domainMeta(domain);
+      const sample = featuredItems.find((item) => item.domain === domain)?.question || '';
+      return `
+        <button class="nav-btn" data-q="${escapeHtml(sample)}">
+          <span class="nav-btn-icon">${meta.icon}</span>
+          <span class="nav-btn-label">${escapeHtml(meta.label)}</span>
+        </button>
+      `;
+    }).join('');
+  }
+}
+
+async function loadStats() {
+  try {
+    const res = await fetch('/stats');
+    const data = await res.json();
+    if (data.error) return;
+
+    const total = Number(data.total_qa_pairs || 0);
+    const domains = Object.keys(data.domains || {}).length;
+    const guides = Number(data.with_steps || 0);
+    const sources = Array.isArray(data.unique_sources) ? data.unique_sources.length : 0;
+    const tags = Array.isArray(data.unique_tags) ? data.unique_tags.length : 0;
+    const updated = data.kb_meta?.last_updated || 'recently';
+
+    if (kbLivePill) kbLivePill.textContent = `${total} curated answers live`;
+    if (heroCoverageCount) heroCoverageCount.textContent = `${total}+`;
+    if (heroCoverageLabel) heroCoverageLabel.textContent = `${domains} service domains`;
+
+    if (insightTotal) insightTotal.textContent = total;
+    if (insightTotalMeta) insightTotalMeta.textContent = `Updated ${updated} with quick answers and workflows.`;
+
+    if (insightDomains) insightDomains.textContent = domains;
+    if (insightDomainsMeta) insightDomainsMeta.textContent = `${tags} unique tags help route questions accurately.`;
+
+    if (insightGuides) insightGuides.textContent = guides;
+    if (insightGuidesMeta) insightGuidesMeta.textContent = 'Step-by-step answers appear directly in chat replies.';
+
+    if (insightSources) insightSources.textContent = sources;
+    if (insightSourcesMeta) insightSourcesMeta.textContent = 'Answers are tagged to campus offices for context.';
+
+    renderFeaturedQuestions(data.featured_items || []);
+    renderDomainCards(data.domains || {}, data.featured_items || []);
+  } catch {}
+}
+
+function fillDebugList(container, items, formatter) {
+  if (!container) return;
+  if (!items || !items.length) {
+    container.innerHTML = '<div class="debug-empty">No items to show right now.</div>';
+    return;
+  }
+  container.innerHTML = items.map(formatter).join('');
+}
+
+async function loadInsights() {
+  try {
+    const res = await fetch('/admin/debug?days=14&limit=6');
+    const data = await res.json();
+    const summary = data.knowledge_base?.summary || {};
+    const analytics = data.analytics || {};
+
+    if (debugTotal) debugTotal.textContent = summary.total_pairs || 0;
+    if (debugStale) debugStale.textContent = summary.stale_count || 0;
+    if (debugRate) debugRate.textContent = `${analytics['tfidf_rate_%'] || 0}%`;
+
+    fillDebugList(debugDomains, Object.entries(summary.domains || {}), ([domain, count]) => `
+      <div class="debug-domain-item">
+        <span class="debug-domain-label">${escapeHtml(domainMeta(domain).label)}</span>
+        <span class="debug-domain-value">${count} items</span>
+      </div>
+    `);
+
+    fillDebugList(debugRecent, data.knowledge_base?.recent_updates || [], (item) => `
+      <div class="debug-list-item">
+        <div class="debug-item-main">${escapeHtml(item.question)}</div>
+        <div class="debug-item-side">${escapeHtml(item.source)}<br>${escapeHtml(item.last_updated)}</div>
+      </div>
+    `);
+
+    fillDebugList(debugFailures, analytics.top_failed || [], (item) => `
+      <div class="debug-list-item">
+        <div class="debug-item-main">${escapeHtml(item.message)}</div>
+        <div class="debug-item-side">${item.count || 0} queries</div>
+      </div>
+    `);
+
+    insightsLoaded = true;
+  } catch {
+    fillDebugList(debugDomains, [], () => '');
+    fillDebugList(debugRecent, [], () => '');
+    fillDebugList(debugFailures, [], () => '');
+  }
+}
+
+function openInsights() {
+  if (debugBackdrop) debugBackdrop.classList.add('show');
+  if (debugDrawer) {
+    debugDrawer.classList.add('show');
+    debugDrawer.setAttribute('aria-hidden', 'false');
+  }
+  if (!insightsLoaded) loadInsights();
+}
+
+function closeInsights() {
+  if (debugBackdrop) debugBackdrop.classList.remove('show');
+  if (debugDrawer) {
+    debugDrawer.classList.remove('show');
+    debugDrawer.setAttribute('aria-hidden', 'true');
+  }
+}
+
+// ── Textarea auto-resize ─────────────────────────
+function autoResize() {
+  msgInput.style.height = 'auto';
+  msgInput.style.height = Math.min(msgInput.scrollHeight, 120) + 'px';
+}
+
+msgInput.addEventListener('input', () => {
+  const len = msgInput.value.length;
+  charCount.textContent = `${len}/500`;
+  charCount.className = 'char-pill' + (len >= 450 ? ' warn' : '');
+  autoResize();
+});
+
+// ── Markdown-lite renderer ────────────────────────
+function renderText(text) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g,     '<em>$1</em>')
+    .replace(/`(.*?)`/g,       '<code>$1</code>')
+    .replace(/\n/g,            '<br>');
+}
+
+// ── Render message ───────────────────────────────
+function renderMessage(role, text, meta = {}) {
+  const row = document.createElement('div');
+  row.className = `msg-row ${role}`;
+
+  const av = document.createElement('div');
+  av.className = `avatar ${role}`;
+  av.textContent = role === 'bot' ? 'S' : 'U';
+
+  const wrap = document.createElement('div');
+  wrap.className = 'bubble-wrap';
+
+  const bubble = document.createElement('div');
+  bubble.className = `bubble ${role}`;
+
+  if (role === 'bot') bubble.innerHTML = renderText(text);
+  else bubble.textContent = text;
+
+  if (meta.steps && meta.steps.length) {
+    const list = document.createElement('ol');
+    list.className = 'step-list';
+    meta.steps.forEach((s, i) => {
+      const li  = document.createElement('li');
+      const num = document.createElement('span'); num.className = 'step-num'; num.textContent = i + 1;
+      const txt = document.createElement('span'); txt.textContent = s;
+      li.append(num, txt); list.appendChild(li);
+    });
+    bubble.appendChild(list);
+  }
+
+  wrap.appendChild(bubble);
+
+  const ts = document.createElement('div');
+  ts.className = 'bubble-timestamp'; ts.textContent = nowTime();
+  wrap.appendChild(ts);
+
+  if (role === 'bot' && meta.source && meta.source !== 'system') {
+    const mr = document.createElement('div'); mr.className = 'meta-row';
+    const badge = document.createElement('span');
+    badge.className = `badge ${meta.source === 'tfidf' ? 'tfidf' : 'groq'}`;
+    badge.textContent = meta.source === 'tfidf' ? '✓ Knowledge base' : '✦ AI generated';
+    mr.appendChild(badge);
+    if (meta.office) {
+      const office = document.createElement('span'); office.className = 'badge office';
+      office.textContent = meta.office;
+      mr.appendChild(office);
+    }
+    if (meta.source === 'tfidf' && meta.confidence > 0) {
+      const cw = document.createElement('div'); cw.className = 'conf-wrap';
+      const bar = document.createElement('div'); bar.className = 'conf-bar';
+      const fill = document.createElement('div'); fill.className = 'conf-fill'; fill.style.width = '0%';
+      bar.appendChild(fill); cw.appendChild(bar);
+      const ct = document.createElement('span'); ct.className = 'conf-text'; ct.textContent = `${meta.confidence}%`;
+      cw.appendChild(ct); mr.appendChild(cw);
+      setTimeout(() => { fill.style.width = Math.min(meta.confidence, 100) + '%'; }, 100);
+    }
+    if (meta.language && meta.language !== 'en') {
+      const lb = document.createElement('span'); lb.className = 'badge lang';
+      lb.textContent = meta.language === 'tanglish' ? '🌐 Tanglish' : '🌐 Tamil';
+      mr.appendChild(lb);
+    }
+    wrap.appendChild(mr);
+  }
+
+  if (role === 'bot' && meta.suggestions && meta.suggestions.length) {
+    const sugg = document.createElement('div');
+    sugg.className = 'reply-suggestions';
+    meta.suggestions.forEach((question) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'reply-suggestion';
+      btn.dataset.q = question;
+      btn.textContent = question;
+      sugg.appendChild(btn);
+    });
+    wrap.appendChild(sugg);
+  }
+
+  row.append(av, wrap);
+  chatEl.insertBefore(row, anchor);
+  scrollBottom();
+  return row;
+}
+
+// ── Typing indicator ─────────────────────────────
+function showTyping() {
+  const row = document.createElement('div');
+  row.className = 'msg-row bot'; row.id = 'typing';
+  const av = document.createElement('div'); av.className = 'avatar bot'; av.textContent = 'S';
+  const wrap = document.createElement('div'); wrap.className = 'bubble-wrap';
+  const bub = document.createElement('div'); bub.className = 'typing-bubble';
+  for (let i = 0; i < 3; i++) { const d = document.createElement('span'); d.className = 'dot'; bub.appendChild(d); }
+  wrap.appendChild(bub); row.append(av, wrap);
+  chatEl.insertBefore(row, anchor); scrollBottom();
+}
+
+function hideTyping() {
+  const el = document.getElementById('typing');
+  if (el) el.remove();
+}
+
+// ── Hide welcome ─────────────────────────────────
+function hideWelcome() {
+  if (welcome) { welcome.style.display = 'none'; }
+  chipsStrip.style.display = 'none';
+}
+
+// ── Send ─────────────────────────────────────────
+async function sendMessage(text) {
+  text = text.trim();
+  if (!text || isLoading) return;
+  if (text.length > MAX_CHARS) { showToast(`Keep it under ${MAX_CHARS} characters`); return; }
+
+  if (msgCount === 0) hideWelcome();
+  msgCount++;
+
+  renderMessage('user', text);
+  chatHistory.push({ role: 'user', text });
+
+  msgInput.value = '';
+  msgInput.style.height = 'auto';
+  charCount.textContent = '0/500';
+  charCount.className = 'char-pill';
+
+  isLoading = true; sendBtn.disabled = true;
+  showTyping();
+
+  try {
+    const res  = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text }),
+    });
+    const data = await res.json();
+    hideTyping();
+    if (data.error) {
+      renderMessage('bot', '⚠ ' + data.error);
+    } else {
+      const reply = data.reply || 'Sorry, I could not process that.';
+      renderMessage('bot', reply, {
+        source: data.source, confidence: data.confidence,
+        intent: data.intent, language: data.language, steps: data.steps || [],
+        office: data.office || '', suggestions: data.suggestions || [],
+      });
+      chatHistory.push({ role: 'bot', text: reply, ...data });
+    }
+  } catch {
+    hideTyping();
+    renderMessage('bot', 'Connection error. Please check your network and try again.');
+  } finally {
+    isLoading = false; sendBtn.disabled = false; msgInput.focus();
+  }
+}
+
+// ── Restore history ──────────────────────────────
+async function restoreHistory() {
+  try {
+    const res  = await fetch('/history');
+    const data = await res.json();
+    const hist = data.history || [];
+    if (!hist.length) return;
+    hideWelcome();
+    chatHistory = [];
+    hist.forEach(e => {
+      const displayRole = e.role === 'user' ? 'user' : 'bot';
+      const meta = e.meta || {};
+      renderMessage(displayRole, e.content, meta);
+      chatHistory.push({ role: displayRole, text: e.content, ...meta });
+      msgCount++;
+    });
+    showToast('Previous conversation restored');
+  } catch {}
+}
+
+// ── Clear ────────────────────────────────────────
+function doClear() {
+  if (!chatHistory.length) { showToast('Nothing to clear'); return; }
+  try { fetch('/history', { method: 'DELETE' }); } catch {}
+  chatEl.querySelectorAll('.msg-row').forEach(r => r.remove());
+  chatHistory = []; msgCount = 0;
+  if (welcome) welcome.style.display = '';
+  chipsStrip.style.display = '';
+  showToast('Chat cleared');
+}
+
+clearBtnS.addEventListener('click', doClear);
+clearBtnT.addEventListener('click', doClear);
+if (insightsBtn) insightsBtn.addEventListener('click', openInsights);
+if (debugClose) debugClose.addEventListener('click', closeInsights);
+if (debugBackdrop) debugBackdrop.addEventListener('click', closeInsights);
+
+// ── Export ───────────────────────────────────────
+function doExport() {
+  if (!chatHistory.length) { showToast('Nothing to export yet'); return; }
+  const lines = chatHistory.map(m => `[${m.role.toUpperCase()}] ${m.text}`);
+  const date  = new Date().toISOString().slice(0, 10);
+  const blob  = new Blob(
+    [`SRM Student Helpdesk — Conversation Export\nDate: ${date}\n${'─'.repeat(48)}\n\n` + lines.join('\n\n')],
+    { type: 'text/plain' }
+  );
+  const a = Object.assign(document.createElement('a'), {
+    href: URL.createObjectURL(blob),
+    download: `srm-helpdesk-${date}.txt`
+  });
+  a.click(); URL.revokeObjectURL(a.href);
+  showToast('Chat exported ✓');
+}
+
+exportBtnS.addEventListener('click', doExport);
+exportBtnT.addEventListener('click', doExport);
+
+// ── Chips, pills, nav, quick ──────────────────────
+chipsStrip.addEventListener('click', e => {
+  const c = e.target.closest('.chip');
+  if (c) sendMessage(c.dataset.q);
+});
+
+if (topicGrid) {
+  topicGrid.addEventListener('click', e => {
+    const p = e.target.closest('.topic-pill');
+    if (p && p.dataset.q) sendMessage(p.dataset.q);
+  });
+}
+
+if (navGrid) {
+  navGrid.addEventListener('click', e => {
+    const b = e.target.closest('.nav-btn');
+    if (b && b.dataset.q) sendMessage(b.dataset.q);
+  });
+}
+
+if (quickList) {
+  quickList.addEventListener('click', e => {
+    const q = e.target.closest('.quick-item');
+    if (q && q.dataset.q) sendMessage(q.dataset.q);
+  });
+}
+
+if (workflowGrid) {
+  workflowGrid.addEventListener('click', e => {
+    const card = e.target.closest('.workflow-card');
+    if (card && card.dataset.q) sendMessage(card.dataset.q);
+  });
+}
+
+chatEl.addEventListener('click', e => {
+  const suggestion = e.target.closest('.reply-suggestion');
+  if (suggestion && suggestion.dataset.q) sendMessage(suggestion.dataset.q);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeInsights();
+});
+
+// ── Keyboard ─────────────────────────────────────
+msgInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(msgInput.value); }
+});
+
+sendBtn.addEventListener('click', () => sendMessage(msgInput.value));
+
+// ── Init ─────────────────────────────────────────
+restoreHistory();
+loadStats();
+msgInput.focus();
+</script>
+</body>
+</html>
