@@ -1,0 +1,9 @@
+flask
+flask-caching
+flask-limiter
+flask-session
+nltk
+langdetect
+scikit-learn
+numpy
+requests

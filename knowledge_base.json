@@ -1,0 +1,1338 @@
+{
+  "meta": {
+    "version": "2.1",
+    "institution": "SRM Institute of Science and Technology",
+    "last_updated": "2026-04-08",
+    "total_pairs": 128
+  },
+  "qa_pairs": [
+
+    {
+      "question": "What is the semester fee for BTech CSE?",
+      "answer": "The semester fee for B.Tech CSE is ₹1,10,000 per semester.",
+      "intent": "fee_btech_cse",
+      "keywords": ["fee", "cse", "computer science", "semester", "tuition", "cost", "charges"],
+      "tags": ["fees", "btech", "cse"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How much is the tuition fee?",
+      "answer": "The tuition fee for B.Tech CSE is ₹1,10,000 per semester, totalling approximately ₹8,80,000 for the full 4-year programme.",
+      "intent": "fee_tuition_total",
+      "keywords": ["tuition", "fee", "total", "4 year", "programme", "cost", "amount"],
+      "tags": ["fees", "btech"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the fee structure for BTech?",
+      "answer": "B.Tech CSE: ₹1,10,000/semester. ECE/EEE: ₹95,000/semester. Mechanical/Civil: ₹85,000/semester. Fees are revised annually.",
+      "intent": "fee_structure_all",
+      "keywords": ["fee structure", "ece", "eee", "mechanical", "civil", "branch", "department", "charges"],
+      "tags": ["fees", "btech", "all-branches"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the total course fee?",
+      "answer": "The total fee for B.Tech CSE over 8 semesters is approximately ₹8,80,000 excluding hostel and other charges.",
+      "intent": "fee_total_course",
+      "keywords": ["total fee", "course fee", "8 semesters", "4 years", "overall", "amount"],
+      "tags": ["fees", "btech"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When is the fee payment deadline?",
+      "answer": "Fee payment deadline is within 30 days from the start of each semester. Late payments attract a penalty of ₹500 per week.",
+      "intent": "fee_deadline",
+      "keywords": ["deadline", "due date", "last date", "30 days", "pay by", "late"],
+      "tags": ["fees", "deadline"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the last date to pay fees?",
+      "answer": "Fees must be paid within 30 days of semester commencement. Check the ACADEMIA portal for the exact date each semester.",
+      "intent": "fee_last_date",
+      "keywords": ["last date", "deadline", "when to pay", "semester start", "commencement"],
+      "tags": ["fees", "deadline"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What are the fee payment modes?",
+      "answer": "Fees can be paid online via the SRM ACADEMIA portal (net banking, UPI, debit/credit card), Demand Draft, or direct bank transfer.",
+      "intent": "fee_payment_modes",
+      "keywords": ["payment mode", "upi", "net banking", "card", "demand draft", "online", "bank transfer", "how to pay"],
+      "tags": ["fees", "payment"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How can I pay my semester fee online?",
+      "answer": "Log in to https://academia.srmist.edu.in, go to Finance then Fee Payment. You can pay via UPI, net banking, or card.",
+      "intent": "fee_pay_online",
+      "answer_steps": [
+        "Go to https://academia.srmist.edu.in and log in.",
+        "Click on Finance in the top menu.",
+        "Select Fee Payment.",
+        "Choose your payment mode: UPI, net banking, or card.",
+        "Complete the payment and download your receipt."
+      ],
+      "keywords": ["pay online", "upi", "net banking", "academia", "finance", "fee payment", "portal"],
+      "tags": ["fees", "payment", "online", "how-to"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the late fee penalty?",
+      "answer": "A late fee penalty of ₹500 per week is charged after the payment deadline. Continued non-payment may result in debarment from exams.",
+      "intent": "fee_late_penalty",
+      "keywords": ["late fee", "penalty", "fine", "500", "overdue", "debarment", "exam"],
+      "tags": ["fees", "penalty"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Are there any scholarships available?",
+      "answer": "Yes. Merit scholarships are available for students in the top 10% of the batch. Government scholarships (SC/ST/OBC) are also applicable. Apply via the scholarship portal on ACADEMIA.",
+      "intent": "fee_scholarship",
+      "keywords": ["scholarship", "merit", "sc", "st", "obc", "government", "financial aid", "top 10%"],
+      "tags": ["fees", "scholarship"],
+      "source": "Scholarship Cell",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I apply for a scholarship?",
+      "answer": "Apply through ACADEMIA portal under Scholarships. Submit required documents such as mark sheets, income certificate, and community certificate. Deadlines are announced at the start of each academic year.",
+      "intent": "fee_scholarship_apply",
+      "answer_steps": [
+        "Log in to https://academia.srmist.edu.in.",
+        "Go to Scholarships under the Student menu.",
+        "Select the applicable scholarship scheme.",
+        "Upload mark sheets, income certificate, and community certificate.",
+        "Submit before the announced deadline."
+      ],
+      "keywords": ["apply scholarship", "documents", "income certificate", "community certificate", "portal"],
+      "tags": ["fees", "scholarship", "how-to"],
+      "source": "Scholarship Cell",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How can I get my fee receipt?",
+      "answer": "Fee receipts are available on the ACADEMIA portal under Finance then Fee Receipt. You can download and print them anytime.",
+      "intent": "fee_receipt",
+      "keywords": ["fee receipt", "download receipt", "proof of payment", "finance", "academia"],
+      "tags": ["fees", "receipt"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the refund policy?",
+      "answer": "Refund policy: 100% within 15 days of joining, 80% within 30 days, 50% within 60 days, no refund after 60 days. Contact the finance office for withdrawal procedures.",
+      "intent": "fee_refund",
+      "keywords": ["refund", "withdrawal", "cancel admission", "money back", "100%", "policy"],
+      "tags": ["fees", "refund"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the hostel fee?",
+      "answer": "Hostel fees range from ₹80,000 to ₹1,20,000 per year depending on room type. AC rooms cost more. Includes accommodation and basic amenities.",
+      "intent": "fee_hostel",
+      "keywords": ["hostel fee", "accommodation fee", "room charges", "ac", "non ac", "boarding"],
+      "tags": ["fees", "hostel"],
+      "source": "Hostel Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the mess fee?",
+      "answer": "Mess fee is approximately ₹45,000 to ₹55,000 per year for three meals a day. Vegetarian and non-vegetarian options are available.",
+      "intent": "fee_mess",
+      "keywords": ["mess fee", "food", "meals", "canteen", "veg", "non veg", "dining", "three meals"],
+      "tags": ["fees", "mess", "food"],
+      "source": "Hostel Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the transport fee?",
+      "answer": "Transport fee varies by route and distance: ₹15,000 to ₹40,000 per year. Bus pass details are available at the transport office near the main gate.",
+      "intent": "fee_transport",
+      "keywords": ["transport fee", "bus fee", "route", "bus pass", "travel", "commute"],
+      "tags": ["fees", "transport"],
+      "source": "Transport Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Is there a fee concession for economically weaker students?",
+      "answer": "Yes, EWS students can apply for fee concession with income certificate and relevant documents at the finance office.",
+      "intent": "fee_ews_concession",
+      "keywords": ["ews", "concession", "economically weaker", "income", "reduction", "poor", "financial need"],
+      "tags": ["fees", "concession", "ews"],
+      "source": "Finance Office",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "What is the internal assessment pattern?",
+      "answer": "There are 3 Internal Assessment cycles per semester. Cycle 1 and 2 are 15 marks each, Cycle 3 is 10 marks. Best 2 out of 3 are considered, totalling 40 marks.",
+      "intent": "exam_internal_pattern",
+      "keywords": ["internal", "assessment", "cat", "cycle test", "ia", "40 marks", "pattern", "3 cycles"],
+      "tags": ["exams", "internal"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How many internal exams are there?",
+      "answer": "There are 3 internal assessment cycles per semester. Each IA covers the syllabus taught up to that point. Best 2 scores out of 3 are counted.",
+      "intent": "exam_internal_count",
+      "keywords": ["how many internal", "number of exams", "cycle", "ia", "assessment", "3 exams"],
+      "tags": ["exams", "internal"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When is the end semester exam?",
+      "answer": "End Semester Exams are held in November for odd semesters and April for even semesters. ESE carries 60 marks out of 100.",
+      "intent": "exam_end_sem_date",
+      "keywords": ["end semester", "ese", "final exam", "november", "april", "60 marks", "when"],
+      "tags": ["exams", "end-sem"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When are the final exams?",
+      "answer": "Final exams are conducted in November for odd semesters and April for even semesters. Timetable is released 2 weeks before.",
+      "intent": "exam_final_date",
+      "keywords": ["final exam", "end sem", "november", "april", "timetable", "schedule"],
+      "tags": ["exams", "end-sem"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I get my hall ticket?",
+      "answer": "Hall tickets are available on ACADEMIA under Examination then Hall Ticket, one week before exams. Print and carry it on all exam days.",
+      "intent": "exam_hall_ticket",
+      "answer_steps": [
+        "Log in to https://academia.srmist.edu.in.",
+        "Go to Examination in the top menu.",
+        "Click Hall Ticket.",
+        "Download and print your hall ticket.",
+        "Carry it on every exam day without fail."
+      ],
+      "keywords": ["hall ticket", "admit card", "exam card", "download", "print", "one week before"],
+      "tags": ["exams", "hall-ticket", "how-to"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Where can I download my hall ticket?",
+      "answer": "Download your hall ticket from ACADEMIA portal under Examination then Hall Ticket. It is available 7 days before the exam.",
+      "intent": "exam_hall_ticket_download",
+      "keywords": ["download hall ticket", "academia", "examination", "7 days", "admit card"],
+      "tags": ["exams", "hall-ticket"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the passing criteria?",
+      "answer": "You need minimum 50% in the End Semester Exam (30 out of 60) AND minimum 50% aggregate (50 out of 100) to pass. Both conditions must be met.",
+      "intent": "exam_passing_criteria",
+      "keywords": ["pass", "passing marks", "minimum marks", "50%", "30 out of 60", "criteria", "both conditions"],
+      "tags": ["exams", "passing"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the minimum marks to pass?",
+      "answer": "Minimum 30 marks in ESE out of 60 and minimum 50 marks in total out of 100 is required to pass a subject.",
+      "intent": "exam_minimum_marks",
+      "keywords": ["minimum marks", "pass", "30", "50", "out of 100", "out of 60", "required"],
+      "tags": ["exams", "passing"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When are supplementary exams held?",
+      "answer": "Supplementary exams are held in June for odd semester failures and December for even semester failures. Register via ACADEMIA within the announced deadline.",
+      "intent": "exam_supplementary_date",
+      "keywords": ["supplementary", "june", "december", "arrear exam", "fail", "register", "when"],
+      "tags": ["exams", "supplementary", "arrear"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How can I apply for revaluation?",
+      "answer": "Apply for revaluation within 10 days of result publication on ACADEMIA under Examination then Revaluation. Fee is ₹300 per subject.",
+      "intent": "exam_revaluation_apply",
+      "answer_steps": [
+        "Wait for the result to be published on ACADEMIA.",
+        "Go to Examination then Revaluation within 10 days of result.",
+        "Select the subject(s) for revaluation.",
+        "Pay ₹300 per subject online.",
+        "Submit and note your application number."
+      ],
+      "keywords": ["revaluation", "apply", "10 days", "300", "result", "marks", "check paper"],
+      "tags": ["exams", "revaluation", "how-to"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the revaluation fee?",
+      "answer": "Revaluation fee is ₹300 per subject. Apply within 10 days of result declaration on the ACADEMIA portal.",
+      "intent": "exam_revaluation_fee",
+      "keywords": ["revaluation fee", "300", "per subject", "cost", "recorrection"],
+      "tags": ["exams", "revaluation"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Where can I find the academic calendar?",
+      "answer": "The academic calendar is published on the official SRM website and on ACADEMIA under Academics then Academic Calendar.",
+      "intent": "exam_academic_calendar",
+      "keywords": ["academic calendar", "schedule", "dates", "holidays", "semester dates", "srm website"],
+      "tags": ["exams", "schedule", "calendar"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the grading system?",
+      "answer": "SRM follows a 10-point GPA system: O=10, A+=9, A=8, B+=7, B=6, C=5. Minimum CGPA of 5.0 is required to continue.",
+      "intent": "exam_grading_system",
+      "keywords": ["grading", "gpa", "grade", "o grade", "a+", "10 point", "cgpa", "scale"],
+      "tags": ["exams", "grades", "cgpa"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How is CGPA calculated?",
+      "answer": "CGPA is the weighted average of all semester GPAs based on credits. Formula: Sum of (Grade Points x Credits) divided by Total Credits. Minimum passing CGPA is 5.0.",
+      "intent": "exam_cgpa_calculation",
+      "keywords": ["cgpa", "calculate", "formula", "grade point", "credits", "weighted average", "gpa"],
+      "tags": ["exams", "cgpa", "grades"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What happens if I fail a subject?",
+      "answer": "If you fail a subject, you must appear in the supplementary exam conducted in June or December. The subject is carried over until cleared.",
+      "intent": "exam_fail_subject",
+      "keywords": ["fail", "failed", "supplementary", "arrear", "carry over", "june", "december"],
+      "tags": ["exams", "arrear", "fail"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the arrear exam?",
+      "answer": "Arrear exams are for students who failed subjects. Held in June and December. Register on ACADEMIA within the deadline. Fee applies per subject.",
+      "intent": "exam_arrear",
+      "keywords": ["arrear", "backlog", "failed subject", "june", "december", "register", "fee"],
+      "tags": ["exams", "arrear"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the attendance requirement to write exams?",
+      "answer": "Minimum 75% attendance is required to be eligible to write the End Semester Exam. Students below 75% are detained.",
+      "intent": "exam_attendance_requirement",
+      "keywords": ["attendance requirement", "75%", "eligible", "exam", "detained", "minimum"],
+      "tags": ["exams", "attendance"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Can I write exam with less than 75% attendance?",
+      "answer": "No. 75% attendance is mandatory to appear in End Semester Exams. Students with 65 to 74% may apply for condonation with a valid medical certificate.",
+      "intent": "exam_attendance_below_75",
+      "keywords": ["below 75", "less than 75", "condonation", "medical certificate", "detained", "65%"],
+      "tags": ["exams", "attendance", "condonation"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "What are the class timings?",
+      "answer": "Classes run from 8:00 AM to 5:00 PM, Monday to Saturday. Each period is 50 minutes long.",
+      "intent": "schedule_class_timings",
+      "keywords": ["class time", "timing", "8 am", "5 pm", "monday", "saturday", "schedule", "hours"],
+      "tags": ["schedule", "timetable"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What time do classes start and end?",
+      "answer": "Classes start at 8:00 AM and end at 5:00 PM, Monday to Saturday.",
+      "intent": "schedule_start_end",
+      "keywords": ["start time", "end time", "8 am", "5 pm", "class hours", "when do classes"],
+      "tags": ["schedule"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When is the lunch break?",
+      "answer": "Lunch break is from 12:50 PM to 1:40 PM every day.",
+      "intent": "schedule_lunch",
+      "keywords": ["lunch", "break", "12:50", "1:40", "afternoon", "canteen", "food break"],
+      "tags": ["schedule", "lunch"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When is the timetable released?",
+      "answer": "The class timetable is released one week before semester commencement on the ACADEMIA portal under My Timetable.",
+      "intent": "schedule_timetable_release",
+      "keywords": ["timetable released", "when released", "one week", "semester start", "academia"],
+      "tags": ["schedule", "timetable"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Where can I find my timetable?",
+      "answer": "Your timetable is on ACADEMIA portal under My Timetable. It shows all subjects, faculty names, room numbers, and timings.",
+      "intent": "schedule_timetable_location",
+      "keywords": ["find timetable", "my timetable", "academia", "portal", "subjects", "room numbers"],
+      "tags": ["schedule", "timetable"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What are the lab session timings?",
+      "answer": "Lab sessions are 3-hour continuous slots such as 8:00 AM to 11:00 AM or 2:00 PM to 5:00 PM. Schedule is on ACADEMIA under My Timetable.",
+      "intent": "schedule_lab_timings",
+      "keywords": ["lab timing", "lab session", "3 hours", "practical", "slot", "lab schedule"],
+      "tags": ["schedule", "lab"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Are there classes on Saturday?",
+      "answer": "Yes. Saturday is a working half-day with classes from 8:00 AM to 1:00 PM for most departments.",
+      "intent": "schedule_saturday",
+      "keywords": ["saturday", "weekend", "half day", "working saturday", "1 pm"],
+      "tags": ["schedule"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When are the semester holidays?",
+      "answer": "Summer vacation is typically in May-June and winter break in December. Check the academic calendar on ACADEMIA for exact dates.",
+      "intent": "schedule_holidays",
+      "keywords": ["holidays", "vacation", "summer", "winter", "break", "may", "june", "december"],
+      "tags": ["schedule", "holidays"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How many periods are there in a day?",
+      "answer": "There are 8 periods per day, each 50 minutes long. Periods run from 8:00 AM to 5:00 PM with lunch from 12:50 to 1:40 PM.",
+      "intent": "schedule_periods_per_day",
+      "keywords": ["periods", "8 periods", "50 minutes", "per day", "how many classes"],
+      "tags": ["schedule"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When does the new semester start?",
+      "answer": "Odd semesters begin in July and even semesters in January. Exact dates are in the academic calendar on the SRM website.",
+      "intent": "schedule_semester_start",
+      "keywords": ["semester start", "new semester", "july", "january", "begin", "commencement"],
+      "tags": ["schedule", "semester"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "What is the minimum attendance required?",
+      "answer": "Minimum 75% attendance is required in each subject to be eligible for the End Semester Exam. Below 75% results in detention.",
+      "intent": "attendance_minimum",
+      "keywords": ["minimum attendance", "75%", "required", "eligible", "detained", "shortage"],
+      "tags": ["attendance"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I check my attendance?",
+      "answer": "Check attendance on ACADEMIA portal under Attendance. It shows subject-wise percentage updated daily after each class.",
+      "intent": "attendance_check",
+      "answer_steps": [
+        "Log in to https://academia.srmist.edu.in.",
+        "Click Attendance from the top menu.",
+        "View your subject-wise attendance percentage.",
+        "Attendance is updated after each class daily."
+      ],
+      "keywords": ["check attendance", "view attendance", "subject wise", "percentage", "academia", "daily"],
+      "tags": ["attendance", "how-to"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What happens if my attendance is below 75 percent?",
+      "answer": "If attendance is below 75%, you are detained and cannot appear in the End Semester Exam for that subject. You must re-register next semester.",
+      "intent": "attendance_below_75",
+      "keywords": ["below 75", "detained", "cannot appear", "re-register", "debarred", "shortage"],
+      "tags": ["attendance", "detained"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Can I get attendance condonation?",
+      "answer": "Students with 65 to 74% attendance may apply for condonation with valid medical certificates approved by the HOD. Below 65% no condonation is granted.",
+      "intent": "attendance_condonation",
+      "keywords": ["condonation", "65%", "74%", "medical certificate", "hod", "approval", "excuse"],
+      "tags": ["attendance", "condonation"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How is attendance calculated?",
+      "answer": "Attendance = (Classes attended divided by Total classes held) x 100. Calculated separately for each subject including theory and lab.",
+      "intent": "attendance_calculation",
+      "keywords": ["calculate attendance", "formula", "attended", "total classes", "theory", "lab", "percentage"],
+      "tags": ["attendance"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I apply for OD?",
+      "answer": "Apply for On Duty through ACADEMIA portal under OD Application, or submit a letter to your class advisor with event details before the event date.",
+      "intent": "attendance_od_apply",
+      "answer_steps": [
+        "Log in to ACADEMIA and go to OD Application.",
+        "Or write a letter to your class advisor mentioning the event name, date, and purpose.",
+        "Get your HOD's approval before the event.",
+        "Submit the approved letter to the department office.",
+        "OD days will be marked as present after approval."
+      ],
+      "keywords": ["od", "on duty", "apply od", "event", "class advisor", "letter", "prior approval"],
+      "tags": ["attendance", "od", "how-to"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is OD attendance?",
+      "answer": "On Duty attendance is granted for students attending official events, placements, or inter-college competitions with prior HOD approval. OD days count as present.",
+      "intent": "attendance_od_meaning",
+      "keywords": ["od meaning", "on duty", "official event", "placement", "competition", "present", "count"],
+      "tags": ["attendance", "od"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "When are results published?",
+      "answer": "End Semester results are published 3 to 4 weeks after the last exam. Results are available on ACADEMIA under Examination then Results.",
+      "intent": "results_publish_date",
+      "keywords": ["results", "when published", "3 weeks", "4 weeks", "after exam", "declaration"],
+      "tags": ["results"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Where can I check my results?",
+      "answer": "Results are on ACADEMIA at https://academia.srmist.edu.in under Examination then Results. Use your register number to view.",
+      "intent": "results_check",
+      "keywords": ["check results", "view results", "academia", "register number", "examination"],
+      "tags": ["results"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I get my mark sheet?",
+      "answer": "Official mark sheets are issued by the Examination Department after each semester. Provisional mark sheets can be downloaded from ACADEMIA.",
+      "intent": "results_marksheet",
+      "keywords": ["mark sheet", "marks", "download", "official", "provisional", "examination department"],
+      "tags": ["results", "marksheet"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I get my transcript?",
+      "answer": "Apply for transcripts at the Examination Department with a request letter and fee of ₹500 per copy. Takes 7 to 10 working days.",
+      "intent": "results_transcript",
+      "keywords": ["transcript", "apply", "500", "request letter", "7 days", "10 days", "working days"],
+      "tags": ["results", "transcript"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the minimum CGPA to pass?",
+      "answer": "Minimum CGPA of 5.0 is required. Students below 5.0 after any semester are placed on academic probation.",
+      "intent": "results_minimum_cgpa",
+      "keywords": ["minimum cgpa", "5.0", "academic probation", "pass", "required gpa"],
+      "tags": ["results", "cgpa"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I improve my CGPA?",
+      "answer": "You can improve CGPA by re-appearing in exams for previously passed subjects via Grade Improvement. Apply via ACADEMIA during the announcement period.",
+      "intent": "results_cgpa_improvement",
+      "keywords": ["improve cgpa", "grade improvement", "re-appear", "better marks", "academia", "apply"],
+      "tags": ["results", "cgpa"],
+      "source": "Examination Department",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "How do I apply for hostel?",
+      "answer": "Apply for hostel through ACADEMIA under Hostel then Apply. Allotment is on a first-come-first-served basis.",
+      "intent": "hostel_apply",
+      "answer_steps": [
+        "Log in to https://academia.srmist.edu.in.",
+        "Go to Hostel under the Student menu.",
+        "Click Apply and fill in your room preference.",
+        "Pay the hostel fee online.",
+        "Wait for the allotment confirmation email."
+      ],
+      "keywords": ["apply hostel", "hostel admission", "allotment", "first come", "academia", "room"],
+      "tags": ["hostel", "how-to"],
+      "source": "Hostel Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What are the hostel timings?",
+      "answer": "Hostel in-time is 9:30 PM on weekdays and 10:00 PM on weekends. Students must sign the in/out register at the hostel office.",
+      "intent": "hostel_timings",
+      "keywords": ["hostel timing", "in time", "curfew", "9:30 pm", "10 pm", "sign", "register"],
+      "tags": ["hostel"],
+      "source": "Hostel Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Is Wi-Fi available in hostel?",
+      "answer": "Yes, Wi-Fi is available in all hostels from 6:00 AM to 11:00 PM. Each student gets a login credential.",
+      "intent": "hostel_wifi",
+      "keywords": ["hostel wifi", "internet", "6 am", "11 pm", "login", "credential", "network"],
+      "tags": ["hostel", "wifi"],
+      "source": "Hostel Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Are there separate hostels for boys and girls?",
+      "answer": "Yes, SRM has separate hostels for boys and girls, both within campus.",
+      "intent": "hostel_gender_separate",
+      "keywords": ["boys hostel", "girls hostel", "separate", "ladies", "gender", "within campus"],
+      "tags": ["hostel"],
+      "source": "Hostel Office",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "What is the placement eligibility criteria?",
+      "answer": "Minimum 60% or 6.0 CGPA with no active arrears is required for most drives. Some companies require 65% or 7.0 CGPA. Check the CDC portal for each company.",
+      "intent": "placement_eligibility",
+      "keywords": ["placement eligible", "60%", "cgpa", "arrear", "6.0", "criteria", "requirement"],
+      "tags": ["placements", "eligibility"],
+      "source": "CDC",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I register for placements?",
+      "answer": "Register on the SRM CDC portal at cdc.srmist.edu.in. Upload your resume, mark sheets, and complete your profile before applying to drives.",
+      "intent": "placement_register",
+      "answer_steps": [
+        "Go to https://cdc.srmist.edu.in and log in.",
+        "Complete your student profile with all academic details.",
+        "Upload your latest resume and mark sheets.",
+        "Browse open placement drives and apply.",
+        "Track application status from the dashboard."
+      ],
+      "keywords": ["register placement", "cdc", "resume", "profile", "apply drive", "cdc portal"],
+      "tags": ["placements", "how-to"],
+      "source": "CDC",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "When do campus placements start?",
+      "answer": "Campus placements typically start in August-September for final year students. Pre-placement talks and aptitude tests begin from 7th semester.",
+      "intent": "placement_start_date",
+      "keywords": ["placement start", "august", "september", "final year", "7th semester", "aptitude"],
+      "tags": ["placements"],
+      "source": "CDC",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Which companies visit SRM for placements?",
+      "answer": "Top recruiters include TCS, Infosys, Wipro, Cognizant, Accenture, Amazon, Zoho, and 500+ more companies annually.",
+      "intent": "placement_companies",
+      "keywords": ["companies", "tcs", "infosys", "amazon", "wipro", "recruiter", "which companies"],
+      "tags": ["placements"],
+      "source": "CDC",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the average placement package at SRM?",
+      "answer": "Average package is around ₹5 to 7 LPA. Highest packages go up to ₹40+ LPA from top tech companies.",
+      "intent": "placement_package",
+      "keywords": ["package", "lpa", "salary", "average", "highest", "ctc", "offer"],
+      "tags": ["placements", "salary"],
+      "source": "CDC",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "Is there a college bus facility?",
+      "answer": "Yes, SRM operates buses from 50+ routes across Chennai and surrounding areas. Routes available at the Transport Office near the main gate.",
+      "intent": "transport_bus_facility",
+      "keywords": ["bus", "college bus", "transport", "routes", "chennai", "facility", "commute"],
+      "tags": ["transport"],
+      "source": "Transport Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I get a bus pass?",
+      "answer": "Apply for a bus pass at the Transport Office with your ID card and fee payment receipt. Annual pass costs ₹15,000 to ₹40,000 based on route.",
+      "intent": "transport_bus_pass",
+      "keywords": ["bus pass", "apply", "transport office", "id card", "annual", "route", "cost"],
+      "tags": ["transport", "bus-pass"],
+      "source": "Transport Office",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What time do college buses arrive and depart?",
+      "answer": "Morning buses arrive at campus between 7:30 to 8:00 AM. Evening buses depart at 5:15 PM and 6:00 PM. Check Transport Office for your route.",
+      "intent": "transport_bus_timings",
+      "keywords": ["bus timing", "arrive", "depart", "7:30 am", "5:15 pm", "6 pm", "morning", "evening"],
+      "tags": ["transport", "timing"],
+      "source": "Transport Office",
+      "last_updated": "2024-08-01"
+    },
+
+    {
+      "question": "What is the student portal link?",
+      "answer": "The official student portal is https://academia.srmist.edu.in. Use your SRM email ID and password to log in.",
+      "intent": "general_portal_url",
+      "keywords": ["portal", "link", "url", "academia", "website", "login", "access"],
+      "tags": ["general", "portal"],
+      "source": "IT Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I log in to ACADEMIA portal?",
+      "answer": "Go to https://academia.srmist.edu.in and log in with your SRM email and password set during admission.",
+      "intent": "general_portal_login",
+      "answer_steps": [
+        "Open https://academia.srmist.edu.in in your browser.",
+        "Enter your SRM email ID (e.g. ab1234@srmist.edu.in).",
+        "Enter the password set during admission.",
+        "Click Login. Use Forgot Password if needed."
+      ],
+      "keywords": ["login", "academia", "email", "password", "sign in", "access portal"],
+      "tags": ["general", "portal", "how-to"],
+      "source": "IT Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the helpdesk email?",
+      "answer": "Student helpdesk: helpdesk@srmist.edu.in. For academic issues: academics@srmist.edu.in. Response within 1 to 2 working days.",
+      "intent": "general_helpdesk_email",
+      "keywords": ["helpdesk", "email", "contact", "support", "mail", "academics", "reach"],
+      "tags": ["general", "contact"],
+      "source": "Admin",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What are the admin office hours?",
+      "answer": "Admin office is open Monday to Friday, 9:00 AM to 4:00 PM. Closed on weekends and public holidays.",
+      "intent": "general_admin_hours",
+      "keywords": ["admin office", "hours", "timing", "9 am", "4 pm", "monday to friday", "open"],
+      "tags": ["general", "admin"],
+      "source": "Admin",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I replace my ID card?",
+      "answer": "Apply at the admin block with a written request and ₹200 fee. New card issued within 3 working days.",
+      "intent": "general_id_card_replace",
+      "keywords": ["id card", "replace", "lost", "200", "admin block", "new card", "3 days"],
+      "tags": ["general", "id-card"],
+      "source": "Admin",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I get a bonafide certificate?",
+      "answer": "Apply on ACADEMIA under Certificates then Bonafide. Ready within 3 working days. Collect from admin office or download if available.",
+      "intent": "general_bonafide",
+      "keywords": ["bonafide", "certificate", "apply", "3 days", "download", "admin", "academia"],
+      "tags": ["general", "certificate"],
+      "source": "Admin",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What are the library timings?",
+      "answer": "Library is open Monday to Saturday 8:00 AM to 8:00 PM. Sundays 9:00 AM to 5:00 PM. Digital library is 24/7 via e-resources portal.",
+      "intent": "general_library_timings",
+      "keywords": ["library", "timing", "8 am", "8 pm", "sunday", "digital", "e-resources", "open"],
+      "tags": ["general", "library"],
+      "source": "Library",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Is there Wi-Fi on campus?",
+      "answer": "Yes, high-speed Wi-Fi is available across campus including classrooms, labs, hostels, and library. Use your SRM credentials to connect.",
+      "intent": "general_campus_wifi",
+      "keywords": ["wifi", "internet", "campus", "classroom", "lab", "credentials", "connect", "network"],
+      "tags": ["general", "wifi"],
+      "source": "IT Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I change my ACADEMIA password?",
+      "answer": "Go to ACADEMIA under Profile then Change Password. If forgotten, click Forgot Password and reset via your registered SRM email.",
+      "intent": "general_password_change",
+      "keywords": ["change password", "forgot password", "reset", "academia", "profile", "email", "login"],
+      "tags": ["general", "portal", "password"],
+      "source": "IT Department",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What clubs and activities are available?",
+      "answer": "SRM has 100+ clubs including technical, cultural, sports, and social service clubs. Register via the Student Activities portal.",
+      "intent": "general_clubs",
+      "keywords": ["clubs", "activities", "technical", "cultural", "sports", "social", "register", "extracurricular"],
+      "tags": ["general", "clubs"],
+      "source": "Student Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Is there a medical facility on campus?",
+      "answer": "Yes, SRM has a 24/7 medical centre with doctors and ambulance. SRM Medical College Hospital is adjacent for emergencies.",
+      "intent": "general_medical",
+      "keywords": ["medical", "hospital", "doctor", "ambulance", "24/7", "health", "emergency", "clinic"],
+      "tags": ["general", "medical"],
+      "source": "Medical Centre",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I apply for leave?",
+      "answer": "Apply for leave through ACADEMIA under Leave Application or submit a letter to your class advisor. Medical leaves require a doctor certificate.",
+      "intent": "general_leave_apply",
+      "keywords": ["leave", "apply leave", "class advisor", "medical leave", "doctor certificate", "absent"],
+      "tags": ["general", "leave"],
+      "source": "Academic Affairs",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I raise a complaint or grievance?",
+      "answer": "Submit grievances via ACADEMIA under Grievance Portal or email grievance@srmist.edu.in. For urgent issues visit the Student Welfare Office.",
+      "intent": "general_grievance",
+      "keywords": ["complaint", "grievance", "issue", "welfare", "grievance@srmist", "portal", "urgent"],
+      "tags": ["general", "grievance"],
+      "source": "Student Welfare",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "What is the dress code?",
+      "answer": "SRM follows a formal dress code. Boys: formal shirt and trousers. Girls: formal salwar or saree. ID card must be worn at all times.",
+      "intent": "general_dress_code",
+      "keywords": ["dress code", "uniform", "formal", "shirt", "trousers", "salwar", "id card", "attire"],
+      "tags": ["general", "dress-code"],
+      "source": "Admin",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "How do I get a no objection certificate?",
+      "answer": "Apply for NOC at admin office or through ACADEMIA under Certificates. State the purpose clearly. Issued within 3 to 5 working days.",
+      "intent": "general_noc",
+      "keywords": ["noc", "no objection certificate", "apply", "admin", "purpose", "3 to 5 days"],
+      "tags": ["general", "certificate"],
+      "source": "Admin",
+      "last_updated": "2024-08-01"
+    },
+    {
+      "question": "Can I pay my semester fee in instalments?",
+      "answer": "Instalment requests are considered case by case by the Finance Office. Submit a parent request letter, reason, and proposed payment schedule before the fee deadline. Approval is not automatic.",
+      "intent": "fee_installment_request",
+      "answer_steps": [
+        "Write a request letter explaining why you need instalment payment.",
+        "Attach supporting documents and parent consent if asked.",
+        "Submit the request to the Finance Office before the due date.",
+        "Wait for written approval before assuming the instalment request is accepted."
+      ],
+      "keywords": ["instalment", "installment fee", "split fee", "part payment", "pay fees in parts", "finance approval"],
+      "tags": ["fees", "payment", "instalment", "how-to"],
+      "aliases": ["Can I split my semester fee?", "Can I pay fees in parts?"],
+      "source": "Finance Office",
+      "last_updated": "2026-04-08",
+      "priority": 3
+    },
+    {
+      "question": "My fee payment is not reflected. What should I do?",
+      "answer": "Online fee payments may take up to 24 hours to reflect on ACADEMIA. Keep your transaction reference and receipt ready. If the status still does not update after one working day, contact the Finance Office with your register number and payment proof.",
+      "intent": "fee_payment_not_reflected",
+      "answer_steps": [
+        "Download or save your payment receipt and transaction ID.",
+        "Wait up to 24 hours for the payment to sync with ACADEMIA.",
+        "Check Finance then Fee Receipt again on the portal.",
+        "If it still fails, email or visit the Finance Office with your register number, amount paid, and transaction details."
+      ],
+      "keywords": ["payment not reflected", "fee not updated", "transaction pending", "receipt not showing", "paid but not visible", "finance issue"],
+      "tags": ["fees", "payment", "portal", "how-to"],
+      "aliases": ["I paid fees but it is not showing", "My semester fee status is pending"],
+      "source": "Finance Office",
+      "last_updated": "2026-04-08",
+      "priority": 3
+    },
+    {
+      "question": "How do I get a fee letter for an education loan?",
+      "answer": "Students can request a fee structure letter or fee estimate for education loans from the Finance Office. Carry your student ID and admission details. Some requests can also be raised through ACADEMIA under Certificates or Student Requests.",
+      "intent": "fee_loan_letter",
+      "answer_steps": [
+        "Visit the Finance Office or raise a certificate/request on ACADEMIA.",
+        "Mention that the document is for an education loan.",
+        "Provide your register number, programme, and semester details.",
+        "Collect the signed fee estimate or loan support letter once approved."
+      ],
+      "keywords": ["education loan", "loan letter", "fee estimate", "bank letter", "loan document", "fee certificate"],
+      "tags": ["fees", "loan", "certificate", "how-to"],
+      "aliases": ["I need a bank letter for education loan", "Can I get fee structure for loan processing?"],
+      "source": "Finance Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I renew my scholarship for the next year?",
+      "answer": "Scholarship renewal usually requires maintaining the prescribed CGPA, acceptable attendance, and no major disciplinary issues. Renewal notices are announced at the beginning of the academic year. Re-submit updated documents through the scholarship portal if asked.",
+      "intent": "fee_scholarship_renewal",
+      "keywords": ["scholarship renewal", "renew scholarship", "maintain cgpa", "renew next year", "scholarship documents"],
+      "tags": ["fees", "scholarship", "renewal"],
+      "source": "Scholarship Cell",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What is the malpractice policy during exams?",
+      "answer": "Using phones, written slips, smart devices, or any unfair means in an exam is treated as malpractice. The paper may be cancelled and the case can be forwarded for disciplinary action. Students must follow all instructions given by the invigilator and Examination Department.",
+      "intent": "exam_malpractice_policy",
+      "keywords": ["malpractice", "unfair means", "phone in exam", "copying", "disciplinary action", "invigilator rules"],
+      "tags": ["exams", "rules", "discipline"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What happens if I miss an end semester exam?",
+      "answer": "If you miss an End Semester Exam, inform your department and the Examination Department immediately, especially in case of medical or emergency reasons. Ordinary absence is usually treated as a fail for that paper. Eligible students may have to appear for the next supplementary or special exam as permitted by the university.",
+      "intent": "exam_absent_endsem",
+      "keywords": ["miss exam", "absent in exam", "medical emergency exam", "did not attend end sem", "special exam", "supplementary"],
+      "tags": ["exams", "absence"],
+      "aliases": ["I missed my semester exam", "Can I write later if I am absent for end sem?"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How can I apply for a scribe for exams?",
+      "answer": "Students who require a scribe or extra support during exams should apply in advance through the Examination Department with relevant medical or disability documents. Approval should be obtained before the hall ticket period closes.",
+      "intent": "exam_scribe_request",
+      "answer_steps": [
+        "Collect the prescribed request format from the Examination Department or your department office.",
+        "Attach the necessary medical or disability certificate.",
+        "Submit the request several days before the exam schedule begins.",
+        "Wait for approval and keep a copy of the permission letter with you."
+      ],
+      "keywords": ["scribe", "writer for exam", "extra support", "disability exam support", "medical certificate", "accessibility"],
+      "tags": ["exams", "accessibility", "how-to"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "What should I do if I lose my hall ticket?",
+      "answer": "If you lose your hall ticket, first try re-downloading it from ACADEMIA. If that is not possible, contact the Examination Department or your department office before the exam. Do not wait until the last minute.",
+      "intent": "exam_duplicate_hall_ticket",
+      "answer_steps": [
+        "Log in to ACADEMIA and try downloading the hall ticket again.",
+        "Print a fresh copy if the portal is still open.",
+        "If the portal access is closed or blocked, contact the Examination Department immediately.",
+        "Carry your student ID card for verification."
+      ],
+      "keywords": ["lost hall ticket", "duplicate hall ticket", "hall ticket missing", "print again", "admit card lost"],
+      "tags": ["exams", "hall-ticket", "how-to"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How is project viva conducted?",
+      "answer": "Project viva is usually scheduled by the department near the end of the semester. Students are expected to submit the report, present their work, and demonstrate the project if required. Evaluation is done by faculty panels based on presentation, implementation, and understanding.",
+      "intent": "exam_project_viva",
+      "keywords": ["project viva", "final review", "project presentation", "demo", "report submission", "evaluation panel"],
+      "tags": ["exams", "project", "viva"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Where can I check my exam seating arrangement?",
+      "answer": "Exam seating arrangements are usually published on the department notice board, exam notice board, or the student portal shortly before the exam. Check one day before the paper to avoid confusion on the exam day.",
+      "intent": "exam_seating_arrangement",
+      "keywords": ["seating arrangement", "exam hall allocation", "room allotment", "where to sit in exam", "notice board", "exam room"],
+      "tags": ["exams", "timetable", "hall-ticket"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Can I change my elective or add/drop a course?",
+      "answer": "Elective changes and add/drop requests are usually allowed only during the announced registration window at the start of the semester. Approval from your faculty advisor or HOD may be required. Late requests are generally not entertained.",
+      "intent": "schedule_add_drop_course",
+      "answer_steps": [
+        "Check whether the add/drop window is currently open.",
+        "Discuss the requested change with your faculty advisor or mentor.",
+        "Submit the change through ACADEMIA or the department form, if applicable.",
+        "Wait for the updated course registration to appear before attending the new class regularly."
+      ],
+      "keywords": ["add drop course", "change elective", "course change", "drop subject", "registration window", "advisor approval"],
+      "tags": ["schedule", "registration", "elective", "how-to"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "When can I meet my faculty advisor or mentor?",
+      "answer": "Faculty advisor and mentor meeting slots are usually shared by the department or class advisor. Students should use the announced counselling hour, mentor hour, or departmental appointment process. For urgent academic issues, contact the advisor through official email and request a meeting slot.",
+      "intent": "schedule_mentor_meeting",
+      "keywords": ["faculty advisor", "mentor meeting", "counselling hour", "advisor time", "appointment with mentor", "class advisor"],
+      "tags": ["schedule", "mentor", "general"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How are missed classes compensated?",
+      "answer": "If classes are cancelled due to holidays, events, or faculty unavailability, departments usually arrange makeup classes, merged sessions, or special slots. Students should check ACADEMIA, class groups, or department notices for the revised schedule.",
+      "intent": "schedule_makeup_class",
+      "keywords": ["makeup class", "missed class", "compensation class", "special slot", "rescheduled lecture", "merged session"],
+      "tags": ["schedule", "classes"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "When does course registration happen?",
+      "answer": "Course registration is usually completed before the start of each semester through ACADEMIA. Students should finish registration, elective selection, and fee payment within the announced window to avoid timetable or attendance issues later.",
+      "intent": "schedule_course_registration",
+      "keywords": ["course registration", "register subjects", "semester registration", "elective selection", "academia registration"],
+      "tags": ["schedule", "registration", "semester"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Does medical leave reduce attendance shortage automatically?",
+      "answer": "Medical leave does not automatically remove attendance shortage in every case. Students must submit valid medical proof and follow the condonation or approval process specified by the department. Final approval depends on university rules and department verification.",
+      "intent": "attendance_medical_leave",
+      "keywords": ["medical leave attendance", "attendance shortage due to illness", "doctor certificate", "medical condonation", "leave proof"],
+      "tags": ["attendance", "medical", "condonation"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What should I do if my attendance is marked incorrectly?",
+      "answer": "If attendance is marked wrongly, contact the concerned faculty member as early as possible with proof such as lab records, assignment submission, OD approval, or class screenshots if applicable. Do not wait until the end of the semester to raise the issue.",
+      "intent": "attendance_marking_error",
+      "answer_steps": [
+        "Check the wrong entry in ACADEMIA and note the subject and date.",
+        "Contact the faculty member or class advisor within one or two working days.",
+        "Share any proof that supports your correction request.",
+        "Follow up until the corrected attendance is updated on the portal."
+      ],
+      "keywords": ["attendance error", "wrong absent", "marked absent by mistake", "attendance correction", "portal correction"],
+      "tags": ["attendance", "portal", "how-to"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "How long does OD take to update in attendance?",
+      "answer": "OD approval usually takes a few working days to reflect in the attendance portal after the department verifies the request. Keep a copy of the approval letter or event confirmation until the portal shows the update.",
+      "intent": "attendance_od_update",
+      "keywords": ["od update time", "when od reflects", "attendance not updated after od", "on duty status", "portal delay"],
+      "tags": ["attendance", "od", "portal"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Why is my result marked as withheld?",
+      "answer": "A withheld result can happen due to pending fee dues, malpractice review, missing internal marks, project clearance issues, or document verification. Contact the Examination Department and your department office to identify the exact reason and clear it quickly.",
+      "intent": "results_withheld",
+      "keywords": ["result withheld", "marks withheld", "pending result", "due clearance", "internal marks missing", "verification issue"],
+      "tags": ["results", "issues"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I correct my name or details on the mark sheet?",
+      "answer": "Report mark sheet name or detail corrections to the Examination Department with a copy of your student ID and supporting documents. Corrections should be requested as soon as the error is noticed.",
+      "intent": "results_name_correction",
+      "answer_steps": [
+        "Check the exact spelling or detail mismatch on the mark sheet.",
+        "Collect proof such as your student ID, Aadhaar, or admission record.",
+        "Submit a correction request to the Examination Department.",
+        "Follow up until the revised record is confirmed."
+      ],
+      "keywords": ["name correction", "marksheet correction", "detail mismatch", "wrong spelling in result", "certificate correction"],
+      "tags": ["results", "certificate", "how-to"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I get my provisional certificate after graduation?",
+      "answer": "After completing all programme requirements, students can apply for a provisional certificate through the Examination Department or the certificates section in ACADEMIA if available. Processing usually starts after degree completion is verified.",
+      "intent": "results_provisional_certificate",
+      "keywords": ["provisional certificate", "after graduation", "degree completion", "final certificate", "apply provisional"],
+      "tags": ["results", "certificate", "graduation"],
+      "aliases": ["When can I get my provisional degree certificate?", "How do I apply for provisional certificate?"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "How do I change my hostel room after allotment?",
+      "answer": "Room change requests are handled by the Hostel Office and are subject to availability, medical needs, or genuine roommate issues. Students should submit the request formally instead of changing rooms on their own.",
+      "intent": "hostel_room_change",
+      "answer_steps": [
+        "Visit the Hostel Office and ask for the room change procedure.",
+        "State the reason clearly, such as medical need or serious room issue.",
+        "Submit the request with any supporting proof if required.",
+        "Wait for written approval before shifting rooms."
+      ],
+      "keywords": ["room change", "change hostel room", "allotment issue", "roommate problem", "shift room", "hostel approval"],
+      "tags": ["hostel", "accommodation", "how-to"],
+      "source": "Hostel Office",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "How do I get a hostel outing or night-out pass?",
+      "answer": "Students should request outing or night-out permission through the hostel warden or the prescribed hostel system before leaving campus. Permission depends on hostel rules, parent intimation, and return timing.",
+      "intent": "hostel_outing_pass",
+      "keywords": ["outing pass", "night out pass", "leave hostel", "warden permission", "weekend pass", "hostel leave"],
+      "tags": ["hostel", "permission"],
+      "source": "Hostel Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I raise a hostel maintenance complaint?",
+      "answer": "Maintenance complaints such as electrical, plumbing, furniture, or water issues should be reported to the hostel office, warden, or the maintenance complaint register/app used by your hostel. Mention the room number clearly so the request can be tracked.",
+      "intent": "hostel_maintenance_complaint",
+      "answer_steps": [
+        "Note the exact issue and your hostel room number.",
+        "Report it to the warden, hostel office, or hostel maintenance portal if available.",
+        "Keep the complaint number or entry reference if one is given.",
+        "Follow up with the hostel office if the issue is not resolved within a reasonable time."
+      ],
+      "keywords": ["hostel complaint", "maintenance issue", "plumbing", "electrical problem", "room complaint", "warden"],
+      "tags": ["hostel", "maintenance", "how-to"],
+      "source": "Hostel Office",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "How do I report mess-related complaints?",
+      "answer": "Mess complaints about food quality, hygiene, menu, or billing should be raised with the mess manager, hostel warden, or hostel office. Use the official feedback or complaint channel if your hostel provides one.",
+      "intent": "hostel_mess_complaint",
+      "keywords": ["mess complaint", "food complaint", "hostel mess issue", "hygiene complaint", "menu complaint", "mess manager"],
+      "tags": ["hostel", "mess", "complaint"],
+      "source": "Hostel Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Can I attend placements if I have arrears?",
+      "answer": "Most companies prefer students with no active arrears at the time of applying. Some drives may allow limited history of arrears, but the exact rule depends on the company. Always check the company criteria published on the CDC portal before applying.",
+      "intent": "placement_backlog",
+      "keywords": ["arrears in placement", "backlog placement", "active arrear", "can i sit for placements", "company criteria"],
+      "tags": ["placements", "eligibility", "arrear"],
+      "source": "CDC",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Who reviews my resume before placement drives?",
+      "answer": "Resume reviews are typically handled through the CDC team, faculty coordinators, or placement mentors before major drives. Students should keep a one-page updated resume and revise it based on the feedback shared during placement training sessions.",
+      "intent": "placement_resume_review",
+      "answer_steps": [
+        "Prepare your latest one-page resume in the recommended format.",
+        "Upload it to the CDC portal or share it with the assigned mentor if asked.",
+        "Attend resume review or pre-placement preparation sessions.",
+        "Update the final resume before applying to companies."
+      ],
+      "keywords": ["resume review", "placement resume", "cv check", "cdc mentor", "resume approval", "one page resume"],
+      "tags": ["placements", "resume", "how-to"],
+      "source": "CDC",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "Does SRM help students get internships?",
+      "answer": "Yes, departments and the CDC often circulate internship opportunities, training programmes, and company openings for eligible students. Many internship activities begin from the middle semesters, but eligibility varies by company and department.",
+      "intent": "placement_internship_support",
+      "keywords": ["internship support", "internship through college", "summer internship", "cdc internship", "company openings", "training internship"],
+      "tags": ["placements", "internship"],
+      "source": "CDC",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What placement training is provided by the college?",
+      "answer": "Placement training usually includes aptitude, coding, communication, mock interviews, resume preparation, and company-specific preparation sessions. The exact schedule depends on your department and the CDC plan for that semester.",
+      "intent": "placement_training",
+      "keywords": ["placement training", "aptitude class", "mock interview", "coding training", "communication training", "cdc session"],
+      "tags": ["placements", "training"],
+      "source": "CDC",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What documents are required for placement registration?",
+      "answer": "Students are usually asked to keep a current resume, recent passport-size photo, mark sheets, government ID proof, and basic academic details ready for placement registration. Some companies may ask for additional documents such as consolidated marks or internship proof.",
+      "intent": "placement_documents",
+      "keywords": ["placement documents", "register for placement", "resume and marksheets", "photo", "academic details", "id proof"],
+      "tags": ["placements", "documents", "registration"],
+      "source": "CDC",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "Can I change my bus route after taking the transport pass?",
+      "answer": "Bus route changes are usually allowed only if seats are available on the requested route. Students should submit the request to the Transport Office early, especially at the start of the semester when seat allocation is being finalized.",
+      "intent": "transport_route_change",
+      "keywords": ["change bus route", "transport route change", "bus pass route", "seat availability", "switch route"],
+      "tags": ["transport", "bus-pass"],
+      "source": "Transport Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What should I do if I lose my bus pass?",
+      "answer": "Report a lost bus pass to the Transport Office as soon as possible. A duplicate pass may be issued after identity verification and payment of the prescribed duplicate-pass fee. Carry your student ID card until the replacement is issued.",
+      "intent": "transport_lost_pass",
+      "answer_steps": [
+        "Visit the Transport Office and report the lost pass.",
+        "Show your student ID card and route details.",
+        "Complete the duplicate pass request form if required.",
+        "Pay the duplicate-pass fee and collect the new pass."
+      ],
+      "keywords": ["lost bus pass", "duplicate bus pass", "transport pass missing", "replace bus card", "duplicate fee"],
+      "tags": ["transport", "bus-pass", "how-to"],
+      "source": "Transport Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What is the format of my SRM student email ID?",
+      "answer": "Student email IDs usually follow the institutional SRM format assigned during admission or onboarding. Check your admission communication, ACADEMIA profile, or IT helpdesk message for the exact address issued to you.",
+      "intent": "general_email_format",
+      "keywords": ["student email format", "srm mail id", "institution email", "official email", "college email address"],
+      "tags": ["general", "contact", "portal"],
+      "source": "IT Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I update my bank account details with the college?",
+      "answer": "Bank detail updates for scholarships, refunds, or reimbursements are usually handled through the student portal or the concerned administrative office. Students should submit the account details carefully along with proof such as a cancelled cheque or passbook copy if requested.",
+      "intent": "general_bank_update",
+      "answer_steps": [
+        "Check whether the update can be made through ACADEMIA or a student request form.",
+        "Keep your bank proof ready, such as a passbook front page or cancelled cheque.",
+        "Submit the corrected account details to the concerned office.",
+        "Verify later that the updated account has been recorded correctly."
+      ],
+      "keywords": ["bank account update", "change bank details", "refund account", "scholarship bank details", "passbook copy"],
+      "tags": ["general", "finance", "how-to"],
+      "source": "Admin",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Is counselling support available for students on campus?",
+      "answer": "Yes, students can approach the counselling or student wellness support system for stress, emotional well-being, and personal concerns. If you need urgent support, contact the student welfare office or medical centre immediately and ask for the counselling contact.",
+      "intent": "general_counselling",
+      "keywords": ["counselling", "mental health", "wellness support", "stress support", "student counsellor", "emotional support"],
+      "tags": ["general", "medical", "student-welfare"],
+      "source": "Student Welfare",
+      "last_updated": "2026-04-08",
+      "priority": 2
+    },
+    {
+      "question": "Do I need to submit an anti-ragging form?",
+      "answer": "Anti-ragging declarations or affidavits are usually required during admission or the start of the academic year, especially for freshers. Follow the instructions shared by the admission team or student affairs office and submit the form before the announced deadline.",
+      "intent": "general_anti_ragging",
+      "keywords": ["anti ragging", "affidavit", "declaration", "fresher form", "admission form", "ragging undertaking"],
+      "tags": ["general", "admission", "compliance"],
+      "source": "Student Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "What documents should freshers bring during reporting or admission?",
+      "answer": "Freshers are usually asked to bring admission offer copies, fee receipt, transfer certificate if required, community or category documents, photo ID, passport-size photos, and original academic certificates for verification. Always follow the latest reporting checklist shared by the admission office.",
+      "intent": "general_reporting_documents",
+      "keywords": ["reporting documents", "fresher documents", "admission verification", "original certificates", "offer letter", "reporting day"],
+      "tags": ["general", "admission", "documents"],
+      "source": "Admission Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I confirm my admission after paying the initial fee?",
+      "answer": "Admission confirmation is usually completed after fee payment, document verification, and the official update from the admission office. Keep your payment receipt and application number safe, and check your registered email or admission portal for the confirmation message.",
+      "intent": "general_admission_confirmation",
+      "keywords": ["admission confirmation", "after fee payment", "seat confirmation", "application number", "reporting confirmation"],
+      "tags": ["general", "admission", "fees"],
+      "source": "Admission Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Can I request a department or branch transfer?",
+      "answer": "Department or branch transfer requests are generally considered only under specific academic and seat-availability conditions after the first year or during the announced transfer window. Final approval depends on university policy, eligibility, and available seats in the requested department.",
+      "intent": "general_department_transfer",
+      "keywords": ["branch change", "department transfer", "change department", "seat availability", "transfer request", "programme transfer"],
+      "tags": ["general", "academics", "transfer"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "Do I need to submit my lab record for practical exams?",
+      "answer": "Many departments require lab records, observation notes, or signed record notebooks to be completed before practical exams or lab viva. The exact rule depends on the department and course faculty, so students should confirm this well before the practical schedule.",
+      "intent": "exam_lab_record_requirement",
+      "keywords": ["lab record", "practical exam record", "observation notebook", "record submission", "lab viva requirement"],
+      "tags": ["exams", "lab", "practical"],
+      "source": "Academic Affairs",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I get an internship NOC from the college?",
+      "answer": "Students usually need an internship NOC from the department or placement office before joining an external internship. Submit the internship offer details, organization name, duration, and any form provided by the company. Processing time depends on department approval.",
+      "intent": "placement_internship_noc",
+      "answer_steps": [
+        "Collect the internship offer letter or confirmation email.",
+        "Submit the NOC request to your department or placement coordinator.",
+        "Include company details, internship dates, and purpose of the NOC.",
+        "Collect the signed NOC before your reporting date."
+      ],
+      "keywords": ["internship noc", "no objection certificate internship", "company internship letter", "placement office noc", "external internship"],
+      "tags": ["placements", "internship", "certificate", "how-to"],
+      "source": "CDC",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do I check out of the hostel when I withdraw or complete the year?",
+      "answer": "Hostel checkout requires room inspection, clearance of mess or maintenance dues, return of room property if applicable, and completion of the hostel clearance form. Students should not leave without taking final clearance from the hostel office or warden.",
+      "intent": "hostel_checkout_clearance",
+      "answer_steps": [
+        "Inform the hostel office or warden about your planned checkout date.",
+        "Clear any pending mess, hostel, or damage dues.",
+        "Get the room inspected and complete the hostel clearance form.",
+        "Collect your final clearance acknowledgement before leaving."
+      ],
+      "keywords": ["hostel checkout", "hostel clearance", "leave hostel permanently", "withdrawal hostel", "room inspection", "warden clearance"],
+      "tags": ["hostel", "clearance", "how-to"],
+      "source": "Hostel Office",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "How do alumni request transcripts or academic documents later?",
+      "answer": "Alumni can request transcripts or academic documents through the Examination Department by submitting the required form, identity proof, and the applicable fee. Processing time depends on document type and archival verification, so apply well in advance if you need it for visas or higher studies.",
+      "intent": "results_alumni_documents",
+      "keywords": ["alumni transcript", "old student transcript", "academic documents later", "higher studies documents", "archival verification"],
+      "tags": ["results", "transcript", "alumni"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    },
+    {
+      "question": "When is the final degree certificate issued?",
+      "answer": "The final degree certificate is usually issued after convocation or the official degree-award process is completed. Until then, eligible students typically use their provisional certificate and transcript for most academic and employment purposes.",
+      "intent": "results_degree_certificate",
+      "keywords": ["degree certificate", "final degree", "convocation certificate", "when issued", "official degree award"],
+      "tags": ["results", "certificate", "graduation"],
+      "source": "Examination Department",
+      "last_updated": "2026-04-08"
+    }
+
+  ]
+}
