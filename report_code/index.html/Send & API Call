@@ -1,0 +1,15 @@
+async function sendMessage(text) {
+  renderMessage('user', text);
+  showTyping();
+  const res  = await fetch('/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: text }),
+  });
+  const data = await res.json();
+  hideTyping();
+  renderMessage('bot', data.reply, {
+    source: data.source, confidence: data.confidence,
+    steps: data.steps || [], suggestions: data.suggestions || [],
+  });
+}
