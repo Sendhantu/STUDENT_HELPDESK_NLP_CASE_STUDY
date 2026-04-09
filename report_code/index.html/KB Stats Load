@@ -1,0 +1,9 @@
+async function loadStats() {
+  const res  = await fetch('/stats');
+  const data = await res.json();
+  kbLivePill.textContent   = `${data.total_qa_pairs} curated answers live`;
+  insightTotal.textContent = data.total_qa_pairs;
+  insightGuides.textContent = data.with_steps;
+  insightSources.textContent = data.unique_sources.length;
+  renderDomainCards(data.domains, data.featured_items);
+}
