@@ -1,0 +1,25 @@
+function renderMessage(role, text, meta = {}) {
+  const bubble = document.createElement('div');
+  bubble.className = `bubble ${role}`;
+  bubble.innerHTML = role === 'bot' ? renderText(text) : '';
+  if (role === 'user') bubble.textContent = text;
+
+  // Step-by-step list (for how-to answers)
+  if (meta.steps?.length) {
+    const list = document.createElement('ol');
+    list.className = 'step-list';
+    meta.steps.forEach((s, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span class="step-num">${i+1}</span><span>${s}</span>`;
+      list.appendChild(li);
+    });
+    bubble.appendChild(list);
+  }
+
+  // Source badge + confidence bar
+  if (role === 'bot' && meta.source) {
+    const badge = document.createElement('span');
+    badge.className = `badge ${meta.source === 'tfidf' ? 'tfidf' : 'groq'}`;
+    badge.textContent = meta.source === 'tfidf' ? '✓ Knowledge base' : '✦ AI generated';
+  }
+}
