@@ -1,0 +1,26 @@
+<div class="app">                        <!-- 2-column grid: sidebar + main -->
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">...</div>  <!-- SRM branding -->
+    <div class="session-card">...</div>  <!-- Live session status -->
+    <div class="nav-grid">...</div>      <!-- Topic buttons (Fees, Exams…) -->
+    <div class="quick-list">...</div>    <!-- Recent suggestion links -->
+    <div class="sidebar-footer">...</div><!-- Export / Clear buttons -->
+  </aside>
+
+  <div class="main">
+    <div class="topbar">...</div>        <!-- Title, model badge, action buttons -->
+    <div id="chat-container">           <!-- Scrollable message area -->
+      <div class="welcome-wrap">...</div><!-- Welcome card with KB stats -->
+    </div>
+    <div class="input-zone">            <!-- Chip suggestions + text input -->
+      <div class="chips-strip">...</div>
+      <div class="input-bar">
+        <textarea id="msg-input"></textarea>
+        <button id="send-btn"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside class="debug-drawer">...</aside>  <!-- Insights panel (overlay) -->
